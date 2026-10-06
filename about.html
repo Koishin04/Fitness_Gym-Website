@@ -5,48 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Fitness / Gym</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
-
     <header class="site-header">
         <div class="container header-content">
             <a href="index.html" class="logo">Fitness <span>/ Gym</span></a>
 
-            <nav aria-label="Main navigation">
-                <ul class="nav-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" aria-current="page">About</a></li>
-                    <li><a href="memberships.html">Memberships</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="memberships.html">Memberships</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
 
-    <main id="main-content">
+    <main>
         <section class="section">
             <div class="container">
                 <div class="page-heading">
                     <p class="eyebrow">About us</p>
                     <h1>A gym for everyday training</h1>
                     <p class="muted">
-                        A simple place to train before classes, after work,
-                        or at the weekend.
+                        Train before classes, after work, or at the weekend.
                     </p>
                 </div>
 
-                <div class="row align-items-center g-4">
-                    <div class="col-lg-6">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-3">
                         <img
-                            src="https://images.unsplash.com/photo-1685633224688-6a77675eb119?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
+                            src="https://images.unsplash.com/photo-1685633224688-6a77675eb119?auto=format&amp;fit=crop&amp;w=1200&amp;h=800&amp;q=80"
                             class="content-photo"
-                            alt="A row of black dumbbells on a gym floor"
-                            width="1200"
-                            height="800">
+                            alt="A row of black dumbbells">
                     </div>
 
                     <div class="col-lg-6">
@@ -59,11 +52,11 @@
 
                         <p>
                             Come on your own or train with a friend.
-                            Our monthly plans let you choose between daytime
-                            visits and access during all opening hours.
+                            Choose daytime visits or access during
+                            all opening hours.
                         </p>
 
-                        <a href="memberships.html" class="btn gym-button">
+                        <a href="memberships.html" class="btn btn-primary gym-button">
                             Find your membership
                         </a>
                     </div>
@@ -73,51 +66,51 @@
 
         <section class="section section-white">
             <div class="container">
-                <h2 class="mb-4">What you will find here</h2>
+                <h2 class="mb-3">What you will find here</h2>
 
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <article class="info-card">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-3">
+                        <div class="card info-card">
                             <h3>Space to train</h3>
-                            <p class="mb-0">
-                                Free weights, exercise machines, and a separate
-                                area for stretching and floor exercises.
+                            <p>
+                                Free weights, exercise machines,
+                                and an area for stretching.
                             </p>
-                        </article>
+                        </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4">
-                        <article class="info-card">
+                    <div class="col-md-6 col-lg-4 mb-3">
+                        <div class="card info-card">
                             <h3>Useful facilities</h3>
-                            <p class="mb-0">
-                                Changing rooms, lockers, and showers are
-                                included with every membership.
+                            <p>
+                                Changing rooms, lockers, and showers
+                                with every membership.
                             </p>
-                        </article>
+                        </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4">
-                        <article class="info-card">
+                    <div class="col-md-6 col-lg-4 mb-3">
+                        <div class="card info-card">
                             <h3>Flexible visits</h3>
-                            <p class="mb-0">
-                                Choose daytime access or visit during all
-                                opening hours with Standard and Plus.
+                            <p>
+                                Choose daytime access or all opening hours
+                                with Standard and Plus.
                             </p>
-                        </article>
+                        </div>
                     </div>
                 </div>
 
                 <div class="visit-strip">
                     <div>
-                        <h2 class="h3">Your first visit</h2>
-                        <ol class="mb-0">
+                        <h3>Your first visit</h3>
+                        <ol>
                             <li>Compare the membership options.</li>
-                            <li>Bring indoor shoes, a towel, and a water bottle.</li>
+                            <li>Bring indoor shoes, a towel, and water.</li>
                             <li>Ask at reception before your first session.</li>
                         </ol>
                     </div>
 
-                    <a href="contact.html" class="btn gym-button">
+                    <a href="contact.html" class="btn btn-primary gym-button">
                         Contact information
                     </a>
                 </div>
@@ -132,25 +125,25 @@
                     <a href="index.html" class="logo">
                         Fitness <span>/ Gym</span>
                     </a>
-                    <p class="muted mt-2 mb-0">
+                    <p class="muted mt-3">
                         Make time for your next workout.
                     </p>
                 </div>
 
-                <address>
-                    Astana, Kazakhstan<br>
-                    Demo email:
-                    <a href="mailto:hello@fitnessgym.example">
-                        hello@fitnessgym.example
-                    </a>
-                </address>
+                <div>
+                    <p>
+                        Astana, Kazakhstan<br>
+                        Demo email: hello@fitnessgym.example
+                    </p>
+                </div>
 
-                <nav class="social-links" aria-label="Social platforms, not gym accounts">
-                    <a href="https://www.instagram.com/"
-                       target="_blank" rel="noopener noreferrer">Instagram</a>
-                    <a href="https://www.youtube.com/"
-                       target="_blank" rel="noopener noreferrer">YouTube</a>
-                </nav>
+                <div>
+                    <p>Social platforms</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/">Instagram</a>
+                        <a href="https://www.youtube.com/">YouTube</a>
+                    </div>
+                </div>
             </div>
 
             <p class="copyright">

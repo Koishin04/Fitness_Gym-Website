@@ -5,29 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memberships | Fitness / Gym</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
-
     <header class="site-header">
         <div class="container header-content">
             <a href="index.html" class="logo">Fitness <span>/ Gym</span></a>
 
-            <nav aria-label="Main navigation">
-                <ul class="nav-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="memberships.html" aria-current="page">Memberships</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="memberships.html" class="active">Memberships</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
 
-    <main id="main-content">
+    <main>
         <section class="section">
             <div class="container">
                 <div class="page-heading">
@@ -35,14 +31,13 @@
                     <h1>Choose your monthly plan</h1>
                     <p class="muted">
                         Pick the access hours and sessions that fit your routine.
-                        Every plan lasts one month.
                     </p>
                 </div>
 
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <article class="info-card membership-card">
-                            <h2 class="h3">Starter</h2>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-3">
+                        <div class="card info-card">
+                            <h2>Starter</h2>
                             <p class="muted">For daytime workouts.</p>
 
                             <p class="price">
@@ -55,15 +50,15 @@
                                 <li>Locker and shower access</li>
                             </ul>
 
-                            <a href="contact.html#membership-form" class="btn gym-button">
+                            <a href="contact.html" class="btn btn-primary gym-button">
                                 Membership form
                             </a>
-                        </article>
+                        </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4">
-                        <article class="info-card membership-card featured-plan">
-                            <h2 class="h3">Standard</h2>
+                    <div class="col-md-6 col-lg-4 mb-3">
+                        <div class="card info-card featured-plan">
+                            <h2>Standard</h2>
                             <p class="muted">For a flexible weekly routine.</p>
 
                             <p class="price">
@@ -71,20 +66,20 @@
                             </p>
 
                             <ul class="feature-list">
-                                <li>Access during all opening hours</li>
+                                <li>All opening hours</li>
                                 <li>4 group sessions per month</li>
                                 <li>Locker and shower access</li>
                             </ul>
 
-                            <a href="contact.html#membership-form" class="btn gym-button">
+                            <a href="contact.html" class="btn btn-primary gym-button">
                                 Membership form
                             </a>
-                        </article>
+                        </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4">
-                        <article class="info-card membership-card">
-                            <h2 class="h3">Plus</h2>
+                    <div class="col-md-6 col-lg-4 mb-3">
+                        <div class="card info-card">
+                            <h2>Plus</h2>
                             <p class="muted">For training with extra support.</p>
 
                             <p class="price">
@@ -92,15 +87,15 @@
                             </p>
 
                             <ul class="feature-list">
-                                <li>Access during all opening hours</li>
+                                <li>All opening hours</li>
                                 <li>8 group sessions per month</li>
                                 <li>2 trainer sessions per month</li>
                             </ul>
 
-                            <a href="contact.html#membership-form" class="btn gym-button">
+                            <a href="contact.html" class="btn btn-primary gym-button">
                                 Membership form
                             </a>
-                        </article>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -108,74 +103,70 @@
 
         <section class="section section-white">
             <div class="container">
-                <h2 class="mb-4" id="comparison-title">
-                    Compare memberships
-                </h2>
+                <h2 class="mb-3">Compare memberships</h2>
 
-                <div class="table-wrapper"
-                     role="region"
-                     tabindex="0"
-                     aria-labelledby="comparison-title">
+                <table class="membership-table">
+                    <caption>
+                        Monthly plans. Prices are examples for a student project.
+                    </caption>
 
-                    <table class="membership-table">
-                        <caption>
-                            Monthly membership details — sample prices
-                            for a student project.
-                        </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Feature</th>
+                            <th scope="col">Starter</th>
+                            <th scope="col">Standard</th>
+                            <th scope="col">Plus</th>
+                        </tr>
+                    </thead>
 
-                        <thead>
-                            <tr>
-                                <th scope="col">Feature</th>
-                                <th scope="col">Starter</th>
-                                <th scope="col">Standard</th>
-                                <th scope="col">Plus</th>
-                            </tr>
-                        </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Monthly price</th>
+                            <td>15,000 ₸</td>
+                            <td>22,000 ₸</td>
+                            <td>30,000 ₸</td>
+                        </tr>
 
-                        <tbody>
-                            <tr>
-                                <th scope="row">Monthly price</th>
-                                <td>15,000 ₸</td>
-                                <td>22,000 ₸</td>
-                                <td>30,000 ₸</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Gym access</th>
-                                <td>Mon–Fri, 07:00–16:00</td>
-                                <td>All opening hours</td>
-                                <td>All opening hours</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Weights and cardio</th>
-                                <td>Included</td>
-                                <td>Included</td>
-                                <td>Included</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Group sessions</th>
-                                <td>Not included</td>
-                                <td>4 per month</td>
-                                <td>8 per month</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Trainer sessions</th>
-                                <td>Not included</td>
-                                <td>Not included</td>
-                                <td>2 per month</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Locker and shower</th>
-                                <td>Included</td>
-                                <td>Included</td>
-                                <td>Included</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                        <tr>
+                            <th scope="row">Access</th>
+                            <td>Mon–Fri<br>07:00–16:00</td>
+                            <td>All opening hours</td>
+                            <td>All opening hours</td>
+                        </tr>
 
-                <p class="muted mt-3 mb-0">
-                    Opening hours: Monday–Friday, 07:00–23:00;
-                    Saturday–Sunday, 09:00–21:00.
+                        <tr>
+                            <th scope="row">Weights and cardio</th>
+                            <td>Included</td>
+                            <td>Included</td>
+                            <td>Included</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Group sessions</th>
+                            <td>Not included</td>
+                            <td>4 per month</td>
+                            <td>8 per month</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Trainer sessions</th>
+                            <td>Not included</td>
+                            <td>Not included</td>
+                            <td>2 per month</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Locker and shower</th>
+                            <td>Included</td>
+                            <td>Included</td>
+                            <td>Included</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="muted mt-3">
+                    Monday–Friday: 07:00–23:00.<br>
+                    Saturday–Sunday: 09:00–21:00.
                 </p>
             </div>
         </section>
@@ -188,25 +179,25 @@
                     <a href="index.html" class="logo">
                         Fitness <span>/ Gym</span>
                     </a>
-                    <p class="muted mt-2 mb-0">
+                    <p class="muted mt-3">
                         Make time for your next workout.
                     </p>
                 </div>
 
-                <address>
-                    Astana, Kazakhstan<br>
-                    Demo email:
-                    <a href="mailto:hello@fitnessgym.example">
-                        hello@fitnessgym.example
-                    </a>
-                </address>
+                <div>
+                    <p>
+                        Astana, Kazakhstan<br>
+                        Demo email: hello@fitnessgym.example
+                    </p>
+                </div>
 
-                <nav class="social-links" aria-label="Social platforms, not gym accounts">
-                    <a href="https://www.instagram.com/"
-                       target="_blank" rel="noopener noreferrer">Instagram</a>
-                    <a href="https://www.youtube.com/"
-                       target="_blank" rel="noopener noreferrer">YouTube</a>
-                </nav>
+                <div>
+                    <p>Social platforms</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/">Instagram</a>
+                        <a href="https://www.youtube.com/">YouTube</a>
+                    </div>
+                </div>
             </div>
 
             <p class="copyright">
