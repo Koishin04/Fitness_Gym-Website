@@ -5,88 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Fitness / Gym</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
-
     <header class="site-header">
         <div class="container header-content">
             <a href="index.html" class="logo">Fitness <span>/ Gym</span></a>
-            <nav aria-label="Main navigation">
-                <ul class="nav-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="memberships.html">Memberships</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html" aria-current="page">Contact</a></li>
-                </ul>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="memberships.html">Memberships</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html" class="active">Contact</a>
             </nav>
         </div>
     </header>
 
-    <main id="main-content">
+    <main>
         <section class="section">
             <div class="container">
                 <div class="page-heading">
-                    <h1>Contact</h1>
-                    <p class="muted">Membership requests and contact information.</p>
+                    <p class="eyebrow">Contact</p>
+                    <h1>Take the next step</h1>
+                    <p class="muted">
+                        Try the membership form and check
+                        our sample opening hours.
+                    </p>
                 </div>
-                <div class="row g-4">
-                    <div class="col-lg-7">
-                        <!-- No name attributes: personal details are not placed in the URL. -->
-                        <form id="membership-form" class="membership-form"
-                              action="contact.html#form-result" method="get"
-                              aria-describedby="form-help">
-                            <h2 class="mb-4">Membership request</h2>
+
+                <div class="row">
+                    <div class="col-lg-7 mb-3">
+                        <form class="contact-form">
+                            <h2 class="mb-3">Membership request</h2>
 
                             <div class="mb-3">
-                                <label for="full-name" class="form-label">Full name</label>
-                                <input type="text" id="full-name" class="form-control"
-                                       autocomplete="name" minlength="2" required>
+                                <label for="full-name" class="form-label">
+                                    Full name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="full-name"
+                                    class="form-control">
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" class="form-control"
-                                       autocomplete="email" required>
+                                <label for="email" class="form-label">
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    class="form-control">
                             </div>
 
-                            <div class="mb-4">
-                                <label for="membership" class="form-label">Membership</label>
-                                <select id="membership" class="form-select" required>
-                                    <option value="" disabled selected>Choose a membership</option>
-                                    <option value="membership-1">[Membership 1]</option>
-                                    <option value="membership-2">[Membership 2]</option>
-                                    <option value="membership-3">[Membership 3]</option>
-                                </select>
+                            <div class="mb-3">
+                                <label for="membership" class="form-label">
+                                    Membership
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="membership"
+                                    class="form-control"
+                                    placeholder="Starter, Standard or Plus">
                             </div>
 
-                            <button type="submit" class="btn gym-button">Check request</button>
+                            <input
+                                type="submit"
+                                value="Submit demo"
+                                class="btn btn-primary gym-button">
 
-                            <p id="form-help" class="form-note mt-3 mb-0">
-                                Demo form: checks required fields only.
-                                It does not send or save a request.
+                            <p class="form-note mt-3">
+                                Demo form: submitting reloads this page.
+                                No membership request is sent or saved.
                             </p>
                         </form>
-
-                        <p id="form-result" class="form-message">
-                            This is a demo. No membership request was sent or saved.
-                        </p>
                     </div>
 
-                    <div class="col-lg-5">
-                        <aside class="info-card" id="gym-contacts">
-                            <h2 class="h3 mb-3">Gym contacts</h2>
-                            <address>
-                                <p><strong>Address:</strong><br>[Gym address]</p>
-                                <p><strong>Email:</strong><br>[Gym email]</p>
-                                <p><strong>Phone:</strong><br>[Gym phone]</p>
-                            </address>
-                            <h3 class="mt-4">Opening hours</h3>
-                            <p class="mb-0">[Add opening days and hours.]</p>
-                        </aside>
+                    <div class="col-lg-5 mb-3">
+                        <div class="card info-card">
+                            <h2>Demo gym details</h2>
+
+                            <p>
+                                <b>City:</b><br>
+                                Astana, Kazakhstan
+                            </p>
+
+                            <p>
+                                <b>Example email:</b><br>
+                                hello@fitnessgym.example
+                            </p>
+
+                            <h3>Opening hours</h3>
+
+                            <p>
+                                Monday–Friday: 07:00–23:00<br>
+                                Saturday–Sunday: 09:00–21:00
+                            </p>
+
+                            <h3>Before your visit</h3>
+
+                            <ul class="feature-list">
+                                <li>Bring indoor sports shoes.</li>
+                                <li>Take a towel and a water bottle.</li>
+                                <li>Check your membership access hours.</li>
+                            </ul>
+
+                            <p class="form-note">
+                                This is a fictional gym.
+                                The example email is not a working inbox.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -96,18 +129,35 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
-                <a href="index.html" class="logo">Fitness <span>/ Gym</span></a>
-                <address>
-                    <span>[Gym email]</span><br>
-                    <span>[Gym phone]</span>
-                </address>
-                <!-- Add real href values and remove aria-disabled. -->
-                <nav class="social-links" aria-label="Social links">
-                    <a aria-disabled="true">[Social link 1]</a>
-                    <a aria-disabled="true">[Social link 2]</a>
-                </nav>
+                <div>
+                    <a href="index.html" class="logo">
+                        Fitness <span>/ Gym</span>
+                    </a>
+                    <p class="muted mt-3">
+                        Make time for your next workout.
+                    </p>
+                </div>
+
+                <div>
+                    <p>
+                        Astana, Kazakhstan<br>
+                        Demo email: hello@fitnessgym.example
+                    </p>
+                </div>
+
+                <div>
+                    <p>Social platforms</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/">Instagram</a>
+                        <a href="https://www.youtube.com/">YouTube</a>
+                    </div>
+                </div>
             </div>
-            <p class="copyright">&copy; 2026 Fitness / Gym. Student project.</p>
+
+            <p class="copyright">
+                &copy; 2026 Fitness / Gym.
+                Student demo: fictional gym and prices; stock photos.
+            </p>
         </div>
     </footer>
 </body>

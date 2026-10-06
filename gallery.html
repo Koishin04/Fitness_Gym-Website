@@ -5,71 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Fitness / Gym</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
-
     <header class="site-header">
         <div class="container header-content">
             <a href="index.html" class="logo">Fitness <span>/ Gym</span></a>
-            <nav aria-label="Main navigation">
-                <ul class="nav-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="memberships.html">Memberships</a></li>
-                    <li><a href="gallery.html" aria-current="page">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="memberships.html">Memberships</a>
+                <a href="gallery.html" class="active">Gallery</a>
+                <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
 
-    <main id="main-content">
+    <main>
         <section class="section">
             <div class="container">
                 <div class="page-heading">
-                    <h1>Gallery</h1>
-                    <p class="muted">[Add a short description of the gallery.]</p>
+                    <p class="eyebrow">Gallery</p>
+                    <h1>Spaces, equipment, and workouts</h1>
+                    <p class="muted">
+                        Stock photos showing the atmosphere of a gym.
+                    </p>
                 </div>
+
                 <div class="gallery-grid">
-                    <figure class="gallery-item">
-                        <img src="images/placeholder.svg"
-                             alt="Placeholder for gallery photo 1"
-                             width="1200" height="800" loading="lazy">
-                        <figcaption>[Photo 1 description]</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="images/placeholder.svg"
-                             alt="Placeholder for gallery photo 2"
-                             width="1200" height="800" loading="lazy">
-                        <figcaption>[Photo 2 description]</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="images/placeholder.svg"
-                             alt="Placeholder for gallery photo 3"
-                             width="1200" height="800" loading="lazy">
-                        <figcaption>[Photo 3 description]</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="images/placeholder.svg"
-                             alt="Placeholder for gallery photo 4"
-                             width="1200" height="800" loading="lazy">
-                        <figcaption>[Photo 4 description]</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="images/placeholder.svg"
-                             alt="Placeholder for gallery photo 5"
-                             width="1200" height="800" loading="lazy">
-                        <figcaption>[Photo 5 description]</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="images/placeholder.svg"
-                             alt="Placeholder for gallery photo 6"
-                             width="1200" height="800" loading="lazy">
-                        <figcaption>[Photo 6 description]</figcaption>
-                    </figure>
+                    <div class="card">
+                        <img
+                            src="https://images.unsplash.com/photo-1637430308606-86576d8fef3c?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
+                            class="card-img-top"
+                            alt="Exercise machines inside a gym"
+                            loading="lazy">
+
+                        <div class="card-body">
+                            <h2 class="card-title">Gym space</h2>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img
+                            src="https://images.unsplash.com/photo-1685633224688-6a77675eb119?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
+                            class="card-img-top"
+                            alt="Black dumbbells on a gym floor"
+                            loading="lazy">
+
+                        <div class="card-body">
+                            <h2 class="card-title">Free weights</h2>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img
+                            src="https://images.unsplash.com/photo-1633354129320-163fb10dd288?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
+                            class="card-img-top"
+                            alt="A woman exercising with dumbbells"
+                            loading="lazy">
+
+                        <div class="card-body">
+                            <h2 class="card-title">Dumbbell workout</h2>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img
+                            src="https://images.unsplash.com/photo-1590487988256-9ed24133863e?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
+                            class="card-img-top"
+                            alt="Training equipment in a gym"
+                            loading="lazy">
+
+                        <div class="card-body">
+                            <h2 class="card-title">Training equipment</h2>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img
+                            src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
+                            class="card-img-top"
+                            alt="Exercise equipment on a gym floor"
+                            loading="lazy">
+
+                        <div class="card-body">
+                            <h2 class="card-title">Workout area</h2>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img
+                            src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
+                            class="card-img-top"
+                            alt="Strength training in a gym"
+                            loading="lazy">
+
+                        <div class="card-body">
+                            <h2 class="card-title">Strength training</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="muted mt-3">
+                    Photos from <a href="https://unsplash.com/">Unsplash</a>.
+                    These are stock images, not photos of a real
+                    Fitness / Gym branch.
+                </p>
+
+                <div class="visit-strip">
+                    <div>
+                        <h3>Find a plan for your routine.</h3>
+                        <p>
+                            Compare access hours, group sessions,
+                            and trainer sessions.
+                        </p>
+                    </div>
+
+                    <a href="memberships.html" class="btn btn-primary gym-button">
+                        View memberships
+                    </a>
                 </div>
             </div>
         </section>
@@ -78,18 +134,35 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
-                <a href="index.html" class="logo">Fitness <span>/ Gym</span></a>
-                <address>
-                    <span>[Gym email]</span><br>
-                    <span>[Gym phone]</span>
-                </address>
-                <!-- Add real href values and remove aria-disabled. -->
-                <nav class="social-links" aria-label="Social links">
-                    <a aria-disabled="true">[Social link 1]</a>
-                    <a aria-disabled="true">[Social link 2]</a>
-                </nav>
+                <div>
+                    <a href="index.html" class="logo">
+                        Fitness <span>/ Gym</span>
+                    </a>
+                    <p class="muted mt-3">
+                        Make time for your next workout.
+                    </p>
+                </div>
+
+                <div>
+                    <p>
+                        Astana, Kazakhstan<br>
+                        Demo email: hello@fitnessgym.example
+                    </p>
+                </div>
+
+                <div>
+                    <p>Social platforms</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/">Instagram</a>
+                        <a href="https://www.youtube.com/">YouTube</a>
+                    </div>
+                </div>
             </div>
-            <p class="copyright">&copy; 2026 Fitness / Gym. Student project.</p>
+
+            <p class="copyright">
+                &copy; 2026 Fitness / Gym.
+                Student demo: fictional gym and prices; stock photos.
+            </p>
         </div>
     </footer>
 </body>
