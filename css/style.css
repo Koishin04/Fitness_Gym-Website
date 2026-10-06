@@ -423,3 +423,135 @@ img {
         padding: 20px;
     }
 }
+:root {
+    --page-bg: #f5f7fb;
+    --surface: #ffffff;
+    --text: #192335;
+    --muted: #5d6878;
+    --accent: #2458bf;
+    --accent-hover: #194394;
+    --soft: #eaf0fc;
+    --border: #dce2ec;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.logo {
+    color: var(--text);
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.section-white {
+    background-color: var(--surface);
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.intro {
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+.hero-photo {
+    height: 430px;
+}
+
+.card-number {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: var(--accent);
+    background-color: var(--soft);
+    font-weight: 700;
+}
+
+.visit-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 40px;
+    padding: 28px;
+    border-radius: 10px;
+    background-color: var(--soft);
+}
+
+.membership-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.membership-card .gym-button {
+    margin-top: auto;
+}
+
+.featured-plan {
+    border: 2px solid var(--accent);
+}
+
+.feature-list {
+    margin-bottom: 24px;
+}
+
+.price {
+    margin: 8px 0 24px;
+}
+
+.price span {
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+.membership-table {
+    min-width: 640px;
+}
+
+.gallery-item img {
+    object-position: center 35%;
+    background-color: var(--border);
+}
+
+.gallery-item figcaption {
+    font-weight: 500;
+}
+
+.form-message {
+    background-color: var(--soft);
+}
+
+@media (max-width: 991px) {
+    .hero-photo {
+        height: 360px;
+    }
+}
+
+@media (max-width: 575px) {
+    .hero-photo {
+        height: 260px;
+    }
+
+    .visit-strip {
+        padding: 20px;
+    }
+}

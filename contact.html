@@ -14,6 +14,7 @@
     <header class="site-header">
         <div class="container header-content">
             <a href="index.html" class="logo">Fitness <span>/ Gym</span></a>
+
             <nav aria-label="Main navigation">
                 <ul class="nav-list">
                     <li><a href="index.html">Home</a></li>
@@ -30,62 +31,123 @@
         <section class="section">
             <div class="container">
                 <div class="page-heading">
-                    <h1>Contact</h1>
-                    <p class="muted">Membership requests and contact information.</p>
+                    <p class="eyebrow">Contact</p>
+                    <h1>Take the next step</h1>
+                    <p class="muted">
+                        Explore the membership form and check
+                        the gym's opening hours.
+                    </p>
                 </div>
+
                 <div class="row g-4">
                     <div class="col-lg-7">
-                        <!-- No name attributes: personal details are not placed in the URL. -->
-                        <form id="membership-form" class="membership-form"
-                              action="contact.html#form-result" method="get"
+                        <form id="membership-form"
+                              class="membership-form"
+                              action="contact.html#form-result"
+                              method="get"
                               aria-describedby="form-help">
+
                             <h2 class="mb-4">Membership request</h2>
 
+                            <!-- No name attributes: this demo does not submit personal details. -->
+
                             <div class="mb-3">
-                                <label for="full-name" class="form-label">Full name</label>
-                                <input type="text" id="full-name" class="form-control"
-                                       autocomplete="name" minlength="2" required>
+                                <label for="full-name" class="form-label">
+                                    Full name
+                                </label>
+
+                                <input type="text"
+                                       id="full-name"
+                                       class="form-control"
+                                       autocomplete="name"
+                                       minlength="2"
+                                       required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" class="form-control"
-                                       autocomplete="email" required>
+                                <label for="email" class="form-label">
+                                    Email
+                                </label>
+
+                                <input type="email"
+                                       id="email"
+                                       class="form-control"
+                                       autocomplete="email"
+                                       required>
                             </div>
 
                             <div class="mb-4">
-                                <label for="membership" class="form-label">Membership</label>
+                                <label for="membership" class="form-label">
+                                    Membership
+                                </label>
+
                                 <select id="membership" class="form-select" required>
-                                    <option value="" disabled selected>Choose a membership</option>
-                                    <option value="membership-1">[Membership 1]</option>
-                                    <option value="membership-2">[Membership 2]</option>
-                                    <option value="membership-3">[Membership 3]</option>
+                                    <option value="" disabled selected>
+                                        Choose a membership
+                                    </option>
+                                    <option value="starter">
+                                        Starter — 15,000 ₸ / month
+                                    </option>
+                                    <option value="standard">
+                                        Standard — 22,000 ₸ / month
+                                    </option>
+                                    <option value="plus">
+                                        Plus — 30,000 ₸ / month
+                                    </option>
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn gym-button">Check request</button>
+                            <button type="submit" class="btn gym-button">
+                                Check request
+                            </button>
 
                             <p id="form-help" class="form-note mt-3 mb-0">
-                                Demo form: checks required fields only.
-                                It does not send or save a request.
+                                Student demo: the browser checks your fields,
+                                but no request is sent or stored by this site.
                             </p>
                         </form>
 
                         <p id="form-result" class="form-message">
-                            This is a demo. No membership request was sent or saved.
+                            This is a demonstration form.
+                            No membership request has been sent or saved.
                         </p>
                     </div>
 
                     <div class="col-lg-5">
                         <aside class="info-card" id="gym-contacts">
-                            <h2 class="h3 mb-3">Gym contacts</h2>
+                            <h2 class="h3 mb-3">Demo gym details</h2>
+
                             <address>
-                                <p><strong>Address:</strong><br>[Gym address]</p>
-                                <p><strong>Email:</strong><br>[Gym email]</p>
-                                <p><strong>Phone:</strong><br>[Gym phone]</p>
+                                <p>
+                                    <strong>City</strong><br>
+                                    Astana, Kazakhstan
+                                </p>
+
+                                <p>
+                                    <strong>Example email</strong><br>
+                                    <a href="mailto:hello@fitnessgym.example">
+                                        hello@fitnessgym.example
+                                    </a>
+                                </p>
                             </address>
+
                             <h3 class="mt-4">Opening hours</h3>
-                            <p class="mb-0">[Add opening days and hours.]</p>
+                            <p>
+                                Monday–Friday: 07:00–23:00<br>
+                                Saturday–Sunday: 09:00–21:00
+                            </p>
+
+                            <h3 class="mt-4">Before your visit</h3>
+                            <ul class="feature-list">
+                                <li>Bring indoor sports shoes.</li>
+                                <li>Take a towel and a water bottle.</li>
+                                <li>Check your membership access hours.</li>
+                            </ul>
+
+                            <p class="form-note mb-0">
+                                The gym and contact details are fictional.
+                                The example email is not a working inbox.
+                            </p>
                         </aside>
                     </div>
                 </div>
@@ -96,18 +158,35 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
-                <a href="index.html" class="logo">Fitness <span>/ Gym</span></a>
+                <div>
+                    <a href="index.html" class="logo">
+                        Fitness <span>/ Gym</span>
+                    </a>
+                    <p class="muted mt-2 mb-0">
+                        Make time for your next workout.
+                    </p>
+                </div>
+
                 <address>
-                    <span>[Gym email]</span><br>
-                    <span>[Gym phone]</span>
+                    Astana, Kazakhstan<br>
+                    Demo email:
+                    <a href="mailto:hello@fitnessgym.example">
+                        hello@fitnessgym.example
+                    </a>
                 </address>
-                <!-- Add real href values and remove aria-disabled. -->
-                <nav class="social-links" aria-label="Social links">
-                    <a aria-disabled="true">[Social link 1]</a>
-                    <a aria-disabled="true">[Social link 2]</a>
+
+                <nav class="social-links" aria-label="Social platforms, not gym accounts">
+                    <a href="https://www.instagram.com/"
+                       target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://www.youtube.com/"
+                       target="_blank" rel="noopener noreferrer">YouTube</a>
                 </nav>
             </div>
-            <p class="copyright">&copy; 2026 Fitness / Gym. Student project.</p>
+
+            <p class="copyright">
+                &copy; 2026 Fitness / Gym.
+                Student demo: fictional gym and prices; stock photos.
+            </p>
         </div>
     </footer>
 </body>
