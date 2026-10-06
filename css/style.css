@@ -307,3 +307,69 @@ img {
         flex-direction: column;
     }
 }
+.feature-list {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.feature-list li + li {
+    margin-top: 10px;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 20px 0 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--surface);
+}
+
+.table-wrapper:focus {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.membership-table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+}
+
+.membership-table caption {
+    caption-side: top;
+    padding: 16px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.membership-table th, .membership-table td {
+    padding: 18px;
+    text-align: left;
+    border-top: 1px solid var(--border);
+}
+
+.membership-table thead {
+    color: var(--surface);
+    background-color: var(--accent);
+}
+
+.membership-table tbody tr:nth-child(even) {
+    background-color: var(--page-bg);
+}
+
+@media (max-width: 991px) {
+    .price {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .membership-table th, .membership-table td {
+        padding: 12px;
+    }
+}
