@@ -232,3 +232,78 @@ img {
         height: 220px;
     }
 }
+.hero {
+    padding: 72px 0;
+}
+
+#home-title {
+    max-width: 540px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 520px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    margin-top: 28px;
+}
+
+@media (max-width: 991px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .nav-list {
+        justify-content: center;
+    }
+
+    .hero, .section {
+        padding: 48px 0;
+    }
+}
+
+@media (max-width: 575px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .site-header nav, .nav-list {
+        width: 100%;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+    }
+
+    .hero, .section {
+        padding: 32px 0;
+    }
+
+    .content-photo {
+        height: 240px;
+    }
+
+    .info-card {
+        padding: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
