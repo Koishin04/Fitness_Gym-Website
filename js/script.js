@@ -1,7 +1,9 @@
 $(document).ready(function () {
     const form = document.getElementById("program-form");
+    const editForm = document.getElementById("edit-program-form");
+    const editDialog = document.getElementById("program-edit-dialog");
 
-    if (!form) {
+    if (!form || !editForm || !editDialog) {
         return;
     }
 
@@ -145,7 +147,8 @@ $(document).ready(function () {
             const buttons = $("<div>").addClass("program-row-actions").appendTo(actions);
 
             $("<button>")
-                .attr({ type: "button", "data-edit": program.id })
+                .attr({ type: "button", "data-edit": program.id,
+                    "aria-haspopup": "dialog", "aria-controls": "program-edit-dialog" })
                 .addClass("btn btn-primary btn-sm")
                 .text("Edit")
                 .appendTo(buttons);
@@ -167,13 +170,9 @@ $(document).ready(function () {
         }
     }
 
-    function resetForm() {
-        form.reset();
-        $("#program-id").val("");
-        $("#form-title").text("Add New Program");
-        $("#save-program").text("Save Program");
-        $("#cancel-edit").prop("hidden", true);
-        $("#program-form input, #program-form select, #program-form textarea").each(function () {
+    function resetForm(targetForm) {
+        targetForm.reset();
+        $(targetForm).find("input, select, textarea").each(function () {
             this.setCustomValidity("");
         });
     }
@@ -195,56 +194,50 @@ $(document).ready(function () {
         renderPrograms();
     });
 
-    $("#program-form input, #program-form select, #program-form textarea").on("input change", function () {
+    $(form).add(editForm).find("input, select, textarea").on("input change", function () {
         this.setCustomValidity("");
     });
 
-    // Create and update.
-    $(form).on("submit", function (event) {
-        event.preventDefault();
+    function readProgramData(targetForm, prefix) {
+        const nameInput = document.getElementById(prefix + "-name");
+        const categoryInput = document.getElementById(prefix + "-category");
+        const descriptionInput = document.getElementById(prefix + "-description");
+        const name = nameInput.value.trim();
+        const category = categoryInput.value;
+        const description = descriptionInput.value.trim();
 
-        const id = Number($("#program-id").val());
-        const name = $("#program-name").val().trim();
-        const category = $("#program-category").val();
-        const description = $("#program-description").val().trim();
-
-        document.getElementById("program-name").setCustomValidity(
+        nameInput.setCustomValidity(
             name.length >= 2 && name.length <= 80 ? "" : "Enter a program name of 2–80 characters."
         );
-        document.getElementById("program-category").setCustomValidity(
+        categoryInput.setCustomValidity(
             categories.includes(category) ? "" : "Choose a category."
         );
-        document.getElementById("program-description").setCustomValidity(
+        descriptionInput.setCustomValidity(
             description.length > 0 && description.length <= 500 ? "" : "Enter a description of 1–500 characters."
         );
 
-        if (!form.reportValidity()) {
+        if (!targetForm.reportValidity()) {
+            return null;
+        }
+
+        return { name: name, category: category, description: description };
+    }
+
+    // Create new records using the page form.
+    $(form).on("submit", function (event) {
+        event.preventDefault();
+        const data = readProgramData(form, "program");
+
+        if (!data) {
             return;
         }
 
-        if (id) {
-            const program = programs.find(function (item) {
-                return item.id === id;
-            });
-
-            if (!program) {
-                resetForm();
-                $("#program-status").text("Program no longer exists. Add a new program.");
-                return;
-            }
-
-            program.name = name;
-            program.category = category;
-            program.description = description;
-        } else {
-            programs.push({ id: nextId++, name: name, category: category, description: description });
-        }
-
-        resetForm();
-        refreshAfterChange(id ? "Program updated." : "Program added.");
+        programs.push({ id: nextId++, ...data });
+        resetForm(form);
+        refreshAfterChange("Program added.");
     });
 
-    // Read the selected record into the edit form.
+    // Edit existing records in a modal dialog.
     $("#program-table-body").on("click", "[data-edit]", function () {
         const id = Number($(this).attr("data-edit"));
         const program = programs.find(function (item) {
@@ -255,21 +248,61 @@ $(document).ready(function () {
             return;
         }
 
-        resetForm();
-        $("#program-id").val(program.id);
-        $("#program-name").val(program.name);
-        $("#program-category").val(program.category);
-        $("#program-description").val(program.description);
-        $("#form-title").text("Edit Program");
-        $("#save-program").text("Update Program");
-        $("#cancel-edit").prop("hidden", false);
-        document.getElementById("program-name").focus();
+        resetForm(editForm);
+        $("#edit-program-id").val(program.id);
+        $("#edit-program-name").val(program.name);
+        $("#edit-program-category").val(program.category);
+        $("#edit-program-description").val(program.description);
+        editDialog.returnValue = "";
+        editDialog.showModal();
+    });
+
+    $(editForm).on("submit", function (event) {
+        event.preventDefault();
+        const data = readProgramData(editForm, "edit-program");
+
+        if (!data) {
+            return;
+        }
+
+        const id = Number($("#edit-program-id").val());
+        const program = programs.find(function (item) {
+            return item.id === id;
+        });
+
+        if (!program) {
+            editDialog.close("deleted");
+            $("#program-status").text("Program no longer exists. Add a new program.");
+            return;
+        }
+
+        program.name = data.name;
+        program.category = data.category;
+        program.description = data.description;
+        refreshAfterChange("Program updated.");
+        editDialog.close("saved");
     });
 
     $("#cancel-edit").on("click", function () {
-        resetForm();
-        $("#program-status").text("Editing cancelled.");
-        document.getElementById("program-name").focus();
+        editDialog.close("cancelled");
+    });
+
+    // Native dialog also closes on Escape and keeps keyboard focus inside while open.
+    $(editDialog).on("close", function () {
+        const id = Number($("#edit-program-id").val());
+        resetForm(editForm);
+        $("#edit-program-id").val("");
+
+        if (editDialog.returnValue !== "saved" && editDialog.returnValue !== "deleted") {
+            $("#program-status").text("Editing cancelled.");
+        }
+
+        const editButton = document.querySelector('[data-edit="' + id + '"]');
+        if (editButton) {
+            editButton.focus();
+        } else {
+            document.getElementById("program-name").focus();
+        }
     });
 
     // Delete after confirmation.
@@ -284,8 +317,8 @@ $(document).ready(function () {
             return program.id !== id;
         });
 
-        if (Number($("#program-id").val()) === id) {
-            resetForm();
+        if (editDialog.open && Number($("#edit-program-id").val()) === id) {
+            editDialog.close("deleted");
         }
 
         refreshAfterChange("Program deleted.");
@@ -293,7 +326,10 @@ $(document).ready(function () {
 
     renderTable();
     renderPrograms();
-    // =====================================
+});
+
+$(document).ready(function () {
+// =====================================
 // FORM VALIDATION
 // =====================================
 

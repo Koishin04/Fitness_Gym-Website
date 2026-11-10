@@ -133,7 +133,6 @@
 
                 <form id="program-form" class="program-form mb-4">
                     <h3 id="form-title" class="mb-4">Add New Program</h3>
-                    <input type="hidden" id="program-id">
 
                     <div class="row g-3">
                         <div class="col-md-6">
@@ -163,11 +162,44 @@
                         <button type="submit" id="save-program" class="btn gym-button">
                             Save Program
                         </button>
-                        <button type="button" id="cancel-edit" class="btn btn-outline-secondary" hidden>
-                            Cancel Edit
-                        </button>
                     </div>
                 </form>
+
+                <dialog id="program-edit-dialog" class="program-dialog" aria-labelledby="edit-program-title">
+                    <form id="edit-program-form">
+                        <h3 id="edit-program-title" class="mb-4">Edit Program</h3>
+                        <input type="hidden" id="edit-program-id">
+
+                        <div class="mb-3">
+                            <label for="edit-program-name" class="form-label">Program Name</label>
+                            <input type="text" id="edit-program-name" class="form-control"
+                                   minlength="2" maxlength="80" required autofocus>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="edit-program-category" class="form-label">Category</label>
+                            <select id="edit-program-category" class="form-select" required>
+                                <option value="" disabled>Choose category</option>
+                                <option value="strength">Strength</option>
+                                <option value="cardio">Cardio</option>
+                                <option value="group">Group</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="edit-program-description" class="form-label">Description</label>
+                            <textarea id="edit-program-description" class="form-control"
+                                      rows="3" maxlength="500" required></textarea>
+                        </div>
+
+                        <div class="program-form-actions mt-4">
+                            <button type="submit" class="btn gym-button">Update Program</button>
+                            <button type="button" id="cancel-edit" class="btn btn-outline-secondary">
+                                Cancel Edit
+                            </button>
+                        </div>
+                    </form>
+                </dialog>
 
                 <p id="program-status" class="program-status" role="status" aria-live="polite"></p>
 
