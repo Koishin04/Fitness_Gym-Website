@@ -101,6 +101,95 @@
             </div>
         </section>
 
+        <section class="section" aria-labelledby="program-search-title">
+            <div class="container">
+                <h2 id="program-search-title" class="mb-4">Find your training program</h2>
+
+                <div class="mb-4">
+                    <label for="program-search" class="form-label">Search programs</label>
+                    <input type="search" id="program-search" class="form-control"
+                           placeholder="Search by program name...">
+                </div>
+
+                <div class="filter-buttons mb-4">
+                    <button type="button" class="btn btn-outline-dark active"
+                            data-filter="all" aria-pressed="true">All</button>
+                    <button type="button" class="btn btn-outline-dark"
+                            data-filter="strength" aria-pressed="false">Strength</button>
+                    <button type="button" class="btn btn-outline-dark"
+                            data-filter="cardio" aria-pressed="false">Cardio</button>
+                    <button type="button" class="btn btn-outline-dark"
+                            data-filter="group" aria-pressed="false">Group</button>
+                </div>
+
+                <p id="program-count" aria-live="polite"></p>
+                <div id="program-results" class="row g-4"></div>
+            </div>
+        </section>
+
+        <section class="section" id="program-management" aria-labelledby="management-title">
+            <div class="container">
+                <h2 id="management-title" class="mb-4">Manage Training Programs</h2>
+
+                <form id="program-form" class="program-form mb-4">
+                    <h3 id="form-title" class="mb-4">Add New Program</h3>
+                    <input type="hidden" id="program-id">
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="program-name" class="form-label">Program Name</label>
+                            <input type="text" id="program-name" class="form-control"
+                                   minlength="2" maxlength="80" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="program-category" class="form-label">Category</label>
+                            <select id="program-category" class="form-select" required>
+                                <option value="" disabled selected>Choose category</option>
+                                <option value="strength">Strength</option>
+                                <option value="cardio">Cardio</option>
+                                <option value="group">Group</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="program-description" class="form-label">Description</label>
+                            <textarea id="program-description" class="form-control"
+                                      rows="3" maxlength="500" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="program-form-actions mt-4">
+                        <button type="submit" id="save-program" class="btn gym-button">
+                            Save Program
+                        </button>
+                        <button type="button" id="cancel-edit" class="btn btn-outline-secondary" hidden>
+                            Cancel Edit
+                        </button>
+                    </div>
+                </form>
+
+                <p id="program-status" class="program-status" role="status" aria-live="polite"></p>
+
+                <h3 id="records-title" class="mb-3">Training Program Records</h3>
+                <div class="table-wrapper" role="region" tabindex="0" aria-labelledby="records-title">
+                    <table class="membership-table program-table">
+                        <caption>Training programs</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Program</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="program-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <section class="section section-white">
             <div class="container">
                 <h2 class="mb-3">Compare memberships</h2>
@@ -171,51 +260,7 @@
             </div>
         </section>
     </main>
-    <section class="section">
-    <div class="container">
-        <h2 class="mb-4">Find your training program</h2>
 
-        <div class="mb-4">
-            <label for="program-search" class="form-label">
-                Search programs
-            </label>
-            <input
-                type="search"
-                id="program-search"
-                class="form-control"
-                placeholder="Search by program name..."
-            >
-        </div>
-
-        <div class="filter-buttons mb-4">
-            <button class="btn btn-outline-dark active"
-                    data-filter="all" aria-pressed="true">
-                All
-            </button>
-
-            <button class="btn btn-outline-dark"
-                    data-filter="strength" aria-pressed="false">
-                Strength
-            </button>
-
-            <button class="btn btn-outline-dark"
-                    data-filter="cardio" aria-pressed="false">
-                Cardio
-            </button>
-
-            <button class="btn btn-outline-dark"
-                    data-filter="group" aria-pressed="false">
-                Group
-            </button>
-        </div>
-
-        <p id="program-count" aria-live="polite"></p>
-
-        <div id="program-results" class="row g-4">
-        </div>
-    </div>
-</section>
-    
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -250,5 +295,7 @@
             </p>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
