@@ -130,7 +130,7 @@
             </div>
         </section>
     </main>
-    
+
     <div class="gallery-grid">
 
     <figure class="gallery-item">
@@ -228,7 +228,40 @@
 
         <figcaption>Gym interior</figcaption>
     </figure>
+ 
+    <div id="lightbox"
+     class="lightbox"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Image gallery"
+     aria-hidden="true">
 
+    <button type="button"
+            id="lightbox-close"
+            class="lightbox-close"
+            aria-label="Close gallery">
+        &times;
+    </button>
+
+    <button type="button"
+            id="lightbox-prev"
+            class="lightbox-arrow"
+            aria-label="Previous image">
+        &#10094;
+    </button>
+
+    <img id="lightbox-image"
+         src=""
+         alt="Enlarged gym photo">
+
+    <button type="button"
+            id="lightbox-next"
+            class="lightbox-arrow"
+            aria-label="Next image">
+        &#10095;
+    </button>
+
+</div>
 </div>
     <footer class="site-footer">
         <div class="container">
@@ -264,5 +297,6 @@
             </p>
         </div>
     </footer>
+    
 </body>
 </html>
