@@ -93,3 +93,61 @@ Verify this address after enabling GitHub Pages.
 
 The placeholder content and inactive social links must be replaced
 before the project is ready for submission.
+
+## Endterm Features
+
+### 1. JavaScript Form Validation
+- Required name, email, password and message fields.
+- Email validation using Regular Expressions.
+- Password strength indicator.
+- Password confirmation.
+- Real-time validation messages.
+- Form submission prevention when validation fails.
+
+### 2. Dynamic Search and Filter
+- Real-time program search.
+- Category filters.
+- Case-insensitive search.
+- Dynamic content updates without page reload.
+- jQuery input and click events.
+
+### 3. CRUD Operations
+- Create new training programs.
+- Read and display program records.
+- Update existing programs.
+- Delete programs with confirmation.
+- Save program data using localStorage.
+
+### 4. Image Gallery
+- Responsive image grid.
+- Lightbox image preview.
+- Next and previous navigation.
+- Keyboard navigation.
+- jQuery fadeIn(), fadeOut() and animate() effects.
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- Bootstrap 5
+- JavaScript
+- jQuery 3.7.1
+- Regular Expressions
+- localStorage
+- Git and GitHub
+
+## Endterm Individual Contributions
+
+| Team Member | Contribution |
+|---|---|
+| Bakhtiyar Koishin | JavaScript setup, dynamic search and category filtering |
+| Aldiyar | CRUD operations, dynamic training program table |
+| Kaysar | Registration form validation, password strength, image gallery lightbox |
+
+## Project Repository
+
+https://github.com/Koishin04/fitness-gym-midterm
+
+## Published Website
+
+https://koishin04.github.io/fitness-gym-midterm/
