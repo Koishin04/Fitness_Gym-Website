@@ -125,6 +125,102 @@
             </div>
         </section>
     </main>
+    
+    <section class="section">
+    <div class="container">
+
+        <h1>Member Registration</h1>
+
+        <p>Register to become a member of our gym.</p>
+
+        <form id="registration-form" class="membership-form" novalidate>
+
+            <div class="mb-3">
+                <label for="full-name" class="form-label">
+                    Full Name
+                </label>
+
+                <input type="text"
+                       id="full-name"
+                       class="form-control"
+                       placeholder="Enter your full name"
+                       required>
+
+                <small class="field-feedback" id="name-feedback"></small>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">
+                    Email Address
+                </label>
+
+                <input type="email"
+                       id="email"
+                       class="form-control"
+                       placeholder="example@gmail.com"
+                       required>
+
+                <small class="field-feedback" id="email-feedback"></small>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">
+                    Password
+                </label>
+
+                <input type="password"
+                       id="password"
+                       class="form-control"
+                       placeholder="Create a password"
+                       required>
+
+                <div class="password-strength mt-2">
+                    <div id="strength-bar"></div>
+                </div>
+
+                <small id="strength-text">Password strength: Not entered</small>
+
+                <small class="field-feedback" id="password-feedback"></small>
+            </div>
+
+            <div class="mb-3">
+                <label for="confirm-password" class="form-label">
+                    Confirm Password
+                </label>
+
+                <input type="password"
+                       id="confirm-password"
+                       class="form-control"
+                       placeholder="Repeat your password"
+                       required>
+
+                <small class="field-feedback" id="confirm-feedback"></small>
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">
+                    Message
+                </label>
+
+                <textarea id="message"
+                          class="form-control"
+                          rows="4"
+                          placeholder="Tell us about your fitness goals"
+                          required></textarea>
+
+                <small class="field-feedback" id="message-feedback"></small>
+            </div>
+
+            <div id="registration-result" aria-live="polite"></div>
+
+            <button type="submit" class="btn gym-button">
+                Register
+            </button>
+
+        </form>
+
+    </div>
+</section>
 
     <footer class="site-footer">
         <div class="container">

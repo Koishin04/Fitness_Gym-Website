@@ -293,4 +293,214 @@ $(document).ready(function () {
 
     renderTable();
     renderPrograms();
+    // =====================================
+// FORM VALIDATION
+// =====================================
+
+function showFeedback(input, feedback, message, valid) {
+
+    $(input).removeClass("is-valid is-invalid");
+
+    if ($(input).val().length === 0 && !message) {
+        $(feedback).text("");
+        return;
+    }
+
+    if (valid) {
+        $(input).addClass("is-valid");
+    } else {
+        $(input).addClass("is-invalid");
+    }
+
+    $(feedback).text(message);
+}
+
+function validateName() {
+
+    const value = $("#full-name").val().trim();
+
+    const valid = /^[A-Za-zА-Яа-яЁё\s'-]{2,60}$/.test(value);
+
+    showFeedback(
+        "#full-name",
+        "#name-feedback",
+        valid ? "Name looks good." : "Enter a valid name.",
+        valid
+    );
+
+    return valid;
+}
+
+function validateEmail() {
+
+    const value = $("#email").val().trim();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    const valid = emailRegex.test(value);
+
+    showFeedback(
+        "#email",
+        "#email-feedback",
+        valid ? "Email is valid." : "Enter a valid email address.",
+        valid
+    );
+
+    return valid;
+}
+
+// PASSWORD STRENGTH
+
+function checkPasswordStrength(password) {
+
+    let score = 0;
+
+    if (password.length >= 8) score++;
+    if (/[a-z]/.test(password)) score++;
+    if (/[A-Z]/.test(password)) score++;
+    if (/[0-9]/.test(password)) score++;
+    if (/[^A-Za-z0-9]/.test(password)) score++;
+
+    if (password.length === 0) {
+        return "Not entered";
+    }
+
+    if (password.length < 8 || score <= 2) {
+        return "Weak";
+    }
+
+    if (score <= 3) {
+        return "Medium";
+    }
+
+    return "Strong";
+}
+
+function validatePassword() {
+
+    const password = $("#password").val();
+
+    const strength = checkPasswordStrength(password);
+
+    $("#strength-text").text(
+        "Password strength: " + strength
+    );
+
+    const widths = {
+        "Not entered": "0%",
+        "Weak": "33%",
+        "Medium": "66%",
+        "Strong": "100%"
+    };
+
+    $("#strength-bar").stop().animate({
+        width: widths[strength]
+    }, 200);
+
+    $("#strength-bar").attr("data-strength", strength.toLowerCase());
+
+    const valid = password.length >= 8;
+
+    showFeedback(
+        "#password",
+        "#password-feedback",
+        valid ? "Password meets the minimum length." : "Password must contain at least 8 characters.",
+        valid
+    );
+
+    return valid;
+}
+
+// CONFIRM PASSWORD
+
+function validateConfirmPassword() {
+
+    const password = $("#password").val();
+    const confirmPassword = $("#confirm-password").val();
+
+    const valid =
+        password.length > 0 &&
+        confirmPassword.length > 0 &&
+        password === confirmPassword;
+
+    showFeedback(
+        "#confirm-password",
+        "#confirm-feedback",
+        valid ? "Passwords match." : "Passwords do not match.",
+        valid
+    );
+
+    return valid;
+}
+
+// MESSAGE
+
+function validateMessage() {
+
+    const value = $("#message").val().trim();
+
+    const valid = value.length >= 5;
+
+    showFeedback(
+        "#message",
+        "#message-feedback",
+        valid ? "Message looks good." : "Message must contain at least 5 characters.",
+        valid
+    );
+
+    return valid;
+}
+
+// REAL-TIME VALIDATION
+
+$("#full-name").on("input", validateName);
+
+$("#email").on("input", validateEmail);
+
+$("#password").on("input", function () {
+    validatePassword();
+
+    if ($("#confirm-password").val().length > 0) {
+        validateConfirmPassword();
+    }
+});
+
+$("#confirm-password").on("input", validateConfirmPassword);
+
+$("#message").on("input", validateMessage);
+
+// SUBMIT VALIDATION
+
+$("#registration-form").on("submit", function (event) {
+
+    event.preventDefault();
+
+    const nameValid = validateName();
+    const emailValid = validateEmail();
+    const passwordValid = validatePassword();
+    const confirmValid = validateConfirmPassword();
+    const messageValid = validateMessage();
+
+    if (
+        !nameValid ||
+        !emailValid ||
+        !passwordValid ||
+        !confirmValid ||
+        !messageValid
+    ) {
+
+        $("#registration-result")
+            .removeClass("alert-success")
+            .addClass("alert alert-danger")
+            .text("Please correct all errors before registration.");
+
+        return;
+    }
+
+    $("#registration-result")
+        .removeClass("alert-danger")
+        .addClass("alert alert-success")
+        .text("Registration form validated successfully! Demo only: no data was sent or stored.");
+
+});
 });
