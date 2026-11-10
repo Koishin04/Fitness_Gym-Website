@@ -327,3 +327,104 @@ a:focus {
         flex-direction: column;
     }
 }
+
+/* Training program management */
+
+#program-management .table-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+}
+
+#program-management .table-wrapper:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+#program-management .program-table caption {
+    caption-side: top;
+    padding: 16px;
+    color: var(--text);
+}
+
+#program-management .program-form {
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: white;
+}
+
+#program-management .form-control,
+#program-management .form-select {
+    padding: 12px;
+    color: var(--text);
+    background-color: white;
+    border-color: var(--border);
+}
+
+#program-management textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#program-management .form-control:focus,
+#program-management .form-select:focus {
+    border-color: var(--accent);
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+#program-management .program-form-actions,
+#program-management .program-row-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#program-management .program-status {
+    min-height: 1.6em;
+    margin-bottom: 24px;
+}
+
+#program-management .program-table {
+    min-width: 700px;
+}
+
+#program-management .program-table th,
+#program-management .program-table td {
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+#program-management .program-table td:nth-child(4) {
+    min-width: 180px;
+    max-width: 420px;
+    white-space: pre-wrap;
+}
+
+#program-management .program-table td:last-child {
+    min-width: 150px;
+}
+
+#program-management .program-empty {
+    padding: 24px;
+    text-align: center;
+    color: #5d6878;
+}
+
+@media (max-width: 991px) {
+    #program-management .program-form {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 575px) {
+    #program-management .program-form {
+        padding: 20px;
+    }
+
+    #program-management .program-form-actions {
+        flex-direction: column;
+    }
+}
