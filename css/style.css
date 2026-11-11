@@ -445,3 +445,36 @@ a:focus {
         flex-direction: column;
     }
 }
+
+/* Registration feedback and animated password strength. */
+#registration-form .field-feedback {
+    display: block;
+    margin-top: 6px;
+    color: #24663d;
+}
+
+#registration-form .password-strength {
+    height: 8px;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: #e3e8ef;
+}
+
+#strength-bar {
+    width: 0;
+    height: 100%;
+    background-color: #b02a37;
+}
+
+#strength-bar[data-strength="medium"] {
+    background-color: #946200;
+}
+
+#strength-bar[data-strength="strong"] {
+    background-color: #24663d;
+}
+
+#strength-text {
+    display: block;
+    margin-top: 6px;
+}

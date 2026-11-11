@@ -329,214 +329,93 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-// =====================================
-// FORM VALIDATION
-// =====================================
+    const form = document.getElementById("registration-form");
+    if (!form) return;
 
-function showFeedback(input, feedback, message, valid) {
+    const $form = $(form);
+    const $result = $form.find("#registration-result");
+    const reducedMotion = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    $(input).removeClass("is-valid is-invalid");
-
-    if ($(input).val().length === 0 && !message) {
-        $(feedback).text("");
-        return;
+    function showFeedback(id, feedbackId, valid, message) {
+        $form.find("#" + id)
+            .toggleClass("is-valid", valid)
+            .toggleClass("is-invalid", !valid)
+            .attr("aria-invalid", String(!valid));
+        $form.find("#" + feedbackId).text(message).toggleClass("text-danger", !valid);
+        return valid;
     }
 
-    if (valid) {
-        $(input).addClass("is-valid");
-    } else {
-        $(input).addClass("is-invalid");
+    function validateName() {
+        const value = $form.find("#full-name").val().trim();
+        // Unicode letters support names in English, Russian and Kazakh.
+        const valid = value.length >= 2 && value.length <= 60 &&
+            /^[\p{L}\p{M} '’-]+$/u.test(value) && /\p{L}/u.test(value);
+        return showFeedback("full-name", "name-feedback", valid,
+            valid ? "Name looks good." : "Enter a name of 2–60 characters using letters, spaces, apostrophes or hyphens.");
     }
 
-    $(feedback).text(message);
-}
-
-function validateName() {
-
-    const value = $("#full-name").val().trim();
-
-    const valid = /^[A-Za-zА-Яа-яЁё\s'-]{2,60}$/.test(value);
-
-    showFeedback(
-        "#full-name",
-        "#name-feedback",
-        valid ? "Name looks good." : "Enter a valid name.",
-        valid
-    );
-
-    return valid;
-}
-
-function validateEmail() {
-
-    const value = $("#email").val().trim();
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-    const valid = emailRegex.test(value);
-
-    showFeedback(
-        "#email",
-        "#email-feedback",
-        valid ? "Email is valid." : "Enter a valid email address.",
-        valid
-    );
-
-    return valid;
-}
-
-// PASSWORD STRENGTH
-
-function checkPasswordStrength(password) {
-
-    let score = 0;
-
-    if (password.length >= 8) score++;
-    if (/[a-z]/.test(password)) score++;
-    if (/[A-Z]/.test(password)) score++;
-    if (/[0-9]/.test(password)) score++;
-    if (/[^A-Za-z0-9]/.test(password)) score++;
-
-    if (password.length === 0) {
-        return "Not entered";
+    function validateEmail() {
+        const value = $form.find("#email").val().trim();
+        const valid = value.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+        return showFeedback("email", "email-feedback", valid,
+            valid ? "Email is valid." : "Enter a valid email address.");
     }
 
-    if (password.length < 8 || score <= 2) {
-        return "Weak";
+    function validatePassword() {
+        const password = $form.find("#password").val();
+        const types = [/[a-z]/, /[A-Z]/, /[0-9]/, /[^A-Za-z0-9\s]/]
+            .filter(function (pattern) { return pattern.test(password); }).length;
+        const level = !password ? 0 : password.length < 8 || types < 2 ? 1 : types < 3 ? 2 : 3;
+        const strength = ["Not entered", "Weak", "Medium", "Strong"][level];
+        $form.find("#strength-text").text("Password strength: " + strength);
+        $form.find(".password-strength").attr({ "aria-valuenow": level, "aria-valuetext": strength });
+        $form.find("#strength-bar").attr("data-strength", strength.toLowerCase())
+            .stop(true).animate({ width: (level / 3 * 100) + "%" }, reducedMotion ? 0 : 200);
+        const valid = password.length >= 8 && password.trim().length > 0;
+        return showFeedback("password", "password-feedback", valid,
+            valid ? "Password meets the minimum length." : "Use at least 8 characters, not only spaces.");
     }
 
-    if (score <= 3) {
-        return "Medium";
+    function validateConfirmation() {
+        const value = $form.find("#confirm-password").val();
+        const valid = value.length > 0 && value === $form.find("#password").val();
+        return showFeedback("confirm-password", "confirm-feedback", valid,
+            valid ? "Passwords match." : "Passwords do not match.");
     }
 
-    return "Strong";
-}
-
-function validatePassword() {
-
-    const password = $("#password").val();
-
-    const strength = checkPasswordStrength(password);
-
-    $("#strength-text").text(
-        "Password strength: " + strength
-    );
-
-    const widths = {
-        "Not entered": "0%",
-        "Weak": "33%",
-        "Medium": "66%",
-        "Strong": "100%"
-    };
-
-    $("#strength-bar").stop().animate({
-        width: widths[strength]
-    }, 200);
-
-    $("#strength-bar").attr("data-strength", strength.toLowerCase());
-
-    const valid = password.length >= 8;
-
-    showFeedback(
-        "#password",
-        "#password-feedback",
-        valid ? "Password meets the minimum length." : "Password must contain at least 8 characters.",
-        valid
-    );
-
-    return valid;
-}
-
-// CONFIRM PASSWORD
-
-function validateConfirmPassword() {
-
-    const password = $("#password").val();
-    const confirmPassword = $("#confirm-password").val();
-
-    const valid =
-        password.length > 0 &&
-        confirmPassword.length > 0 &&
-        password === confirmPassword;
-
-    showFeedback(
-        "#confirm-password",
-        "#confirm-feedback",
-        valid ? "Passwords match." : "Passwords do not match.",
-        valid
-    );
-
-    return valid;
-}
-
-// MESSAGE
-
-function validateMessage() {
-
-    const value = $("#message").val().trim();
-
-    const valid = value.length >= 5;
-
-    showFeedback(
-        "#message",
-        "#message-feedback",
-        valid ? "Message looks good." : "Message must contain at least 5 characters.",
-        valid
-    );
-
-    return valid;
-}
-
-// REAL-TIME VALIDATION
-
-$("#full-name").on("input", validateName);
-
-$("#email").on("input", validateEmail);
-
-$("#password").on("input", function () {
-    validatePassword();
-
-    if ($("#confirm-password").val().length > 0) {
-        validateConfirmPassword();
-    }
-});
-
-$("#confirm-password").on("input", validateConfirmPassword);
-
-$("#message").on("input", validateMessage);
-
-// SUBMIT VALIDATION
-
-$("#registration-form").on("submit", function (event) {
-
-    event.preventDefault();
-
-    const nameValid = validateName();
-    const emailValid = validateEmail();
-    const passwordValid = validatePassword();
-    const confirmValid = validateConfirmPassword();
-    const messageValid = validateMessage();
-
-    if (
-        !nameValid ||
-        !emailValid ||
-        !passwordValid ||
-        !confirmValid ||
-        !messageValid
-    ) {
-
-        $("#registration-result")
-            .removeClass("alert-success")
-            .addClass("alert alert-danger")
-            .text("Please correct all errors before registration.");
-
-        return;
+    function validateMessage() {
+        const value = $form.find("#message").val().trim();
+        const valid = value.length >= 5 && value.length <= 1000;
+        return showFeedback("message", "message-feedback", valid,
+            valid ? "Message looks good." : "Enter a message of 5–1000 characters.");
     }
 
-    $("#registration-result")
-        .removeClass("alert-danger")
-        .addClass("alert alert-success")
-        .text("Registration form validated successfully! Demo only: no data was sent or stored.");
+    $form.on("input", "input, textarea", function () {
+        $result.removeClass("alert alert-success alert-danger").empty();
+    });
+    $form.find("#full-name").on("input", validateName);
+    $form.find("#email").on("input", validateEmail);
+    $form.find("#password").on("input", function () {
+        validatePassword();
+        if ($form.find("#confirm-password").val() ||
+            $form.find("#confirm-password").attr("aria-invalid")) {
+            validateConfirmation();
+        }
+    });
+    $form.find("#confirm-password").on("input", validateConfirmation);
+    $form.find("#message").on("input", validateMessage);
 
-});
+    $form.on("submit", function (event) {
+        event.preventDefault();
+        // Run every check so all invalid fields receive feedback at once.
+        const checks = [validateName(), validateEmail(), validatePassword(),
+            validateConfirmation(), validateMessage()];
+        const valid = checks.every(Boolean);
+        $result.addClass("alert").toggleClass("alert-success", valid)
+            .toggleClass("alert-danger", !valid)
+            .text(valid ? "Registration form validated successfully! Demo only: no data was sent or stored." :
+                "Please correct all errors before registration.");
+        if (!valid) $form.find(".is-invalid").first().trigger("focus");
+    });
 });

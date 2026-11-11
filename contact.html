@@ -30,59 +30,104 @@
                     <p class="eyebrow">Contact</p>
                     <h1>Take the next step</h1>
                     <p class="muted">
-                        Try the membership form and check
+                        Try the registration form and check
                         our sample opening hours.
                     </p>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-7 mb-3">
-                        <form class="contact-form">
-                            <h2 class="mb-3">Membership request</h2>
+                        <form id="registration-form" class="contact-form" novalidate>
+                            <h2 class="mb-3">Member registration</h2>
+                            <p class="form-note">Demo only: no account is created and no personal data is sent or stored.</p>
 
                             <div class="mb-3">
                                 <label for="full-name" class="form-label">
-                                    Full name
+                                    Full Name
                                 </label>
 
-                                <input
-                                    type="text"
-                                    id="full-name"
-                                    class="form-control">
+                                <input type="text"
+                                       id="full-name"
+                                       autocomplete="name" maxlength="60" aria-describedby="name-feedback"
+                                       class="form-control"
+                                       placeholder="Enter your full name"
+                                       required>
+
+                                <small class="field-feedback" aria-live="polite" id="name-feedback"></small>
                             </div>
 
                             <div class="mb-3">
                                 <label for="email" class="form-label">
-                                    Email
+                                    Email Address
                                 </label>
 
-                                <input
-                                    type="email"
-                                    id="email"
-                                    class="form-control">
+                                <input type="email"
+                                       id="email"
+                                       autocomplete="email" maxlength="254" aria-describedby="email-feedback"
+                                       class="form-control"
+                                       placeholder="example@gmail.com"
+                                       required>
+
+                                <small class="field-feedback" aria-live="polite" id="email-feedback"></small>
                             </div>
 
                             <div class="mb-3">
-                                <label for="membership" class="form-label">
-                                    Membership
+                                <label for="password" class="form-label">
+                                    Password
                                 </label>
 
-                                <input
-                                    type="text"
-                                    id="membership"
-                                    class="form-control"
-                                    placeholder="Starter, Standard or Plus">
+                                <input type="password"
+                                       id="password"
+                                       autocomplete="new-password" minlength="8" aria-describedby="strength-text password-feedback"
+                                       class="form-control"
+                                       placeholder="Create a password"
+                                       required>
+
+                                <div class="password-strength mt-2" role="progressbar" aria-label="Password strength" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" aria-valuetext="Not entered">
+                                    <div id="strength-bar"></div>
+                                </div>
+
+                                <small id="strength-text" aria-live="polite">Password strength: Not entered</small>
+
+                                <small class="field-feedback" aria-live="polite" id="password-feedback"></small>
                             </div>
 
-                            <input
-                                type="submit"
-                                value="Submit demo"
-                                class="btn btn-primary gym-button">
+                            <div class="mb-3">
+                                <label for="confirm-password" class="form-label">
+                                    Confirm Password
+                                </label>
 
-                            <p class="form-note mt-3">
-                                Demo form: submitting reloads this page.
-                                No membership request is sent or saved.
-                            </p>
+                                <input type="password"
+                                       id="confirm-password"
+                                       autocomplete="new-password" aria-describedby="confirm-feedback"
+                                       class="form-control"
+                                       placeholder="Repeat your password"
+                                       required>
+
+                                <small class="field-feedback" aria-live="polite" id="confirm-feedback"></small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message" class="form-label">
+                                    Message
+                                </label>
+
+                                <textarea id="message"
+                                       minlength="5" maxlength="1000" aria-describedby="message-feedback"
+                                          class="form-control"
+                                          rows="4"
+                                          placeholder="Tell us about your fitness goals"
+                                          required></textarea>
+
+                                <small class="field-feedback" aria-live="polite" id="message-feedback"></small>
+                            </div>
+
+                            <div id="registration-result" aria-live="polite"></div>
+
+                            <button type="submit" class="btn btn-primary gym-button">
+                                Register
+                            </button>
+
                         </form>
                     </div>
 
@@ -125,102 +170,7 @@
             </div>
         </section>
     </main>
-    
-    <section class="section">
-    <div class="container">
 
-        <h1>Member Registration</h1>
-
-        <p>Register to become a member of our gym.</p>
-
-        <form id="registration-form" class="membership-form" novalidate>
-
-            <div class="mb-3">
-                <label for="full-name" class="form-label">
-                    Full Name
-                </label>
-
-                <input type="text"
-                       id="full-name"
-                       class="form-control"
-                       placeholder="Enter your full name"
-                       required>
-
-                <small class="field-feedback" id="name-feedback"></small>
-            </div>
-
-            <div class="mb-3">
-                <label for="email" class="form-label">
-                    Email Address
-                </label>
-
-                <input type="email"
-                       id="email"
-                       class="form-control"
-                       placeholder="example@gmail.com"
-                       required>
-
-                <small class="field-feedback" id="email-feedback"></small>
-            </div>
-
-            <div class="mb-3">
-                <label for="password" class="form-label">
-                    Password
-                </label>
-
-                <input type="password"
-                       id="password"
-                       class="form-control"
-                       placeholder="Create a password"
-                       required>
-
-                <div class="password-strength mt-2">
-                    <div id="strength-bar"></div>
-                </div>
-
-                <small id="strength-text">Password strength: Not entered</small>
-
-                <small class="field-feedback" id="password-feedback"></small>
-            </div>
-
-            <div class="mb-3">
-                <label for="confirm-password" class="form-label">
-                    Confirm Password
-                </label>
-
-                <input type="password"
-                       id="confirm-password"
-                       class="form-control"
-                       placeholder="Repeat your password"
-                       required>
-
-                <small class="field-feedback" id="confirm-feedback"></small>
-            </div>
-
-            <div class="mb-3">
-                <label for="message" class="form-label">
-                    Message
-                </label>
-
-                <textarea id="message"
-                          class="form-control"
-                          rows="4"
-                          placeholder="Tell us about your fitness goals"
-                          required></textarea>
-
-                <small class="field-feedback" id="message-feedback"></small>
-            </div>
-
-            <div id="registration-result" aria-live="polite"></div>
-
-            <button type="submit" class="btn gym-button">
-                Register
-            </button>
-
-        </form>
-
-    </div>
-</section>
 
     <footer class="site-footer">
         <div class="container">
@@ -257,6 +207,6 @@
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
