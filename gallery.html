@@ -36,11 +36,14 @@
 
                 <div class="gallery-grid">
                     <div class="card">
-                        <img
-                            src="https://images.unsplash.com/photo-1637430308606-86576d8fef3c?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
-                            class="card-img-top"
-                            alt="Exercise machines inside a gym"
-                            loading="lazy">
+                        <button type="button" class="gallery-trigger" aria-label="Open Gym space" aria-haspopup="dialog" aria-controls="lightbox">
+                            <img
+                                src="https://images.unsplash.com/photo-1637430308606-86576d8fef3c?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
+                                class="card-img-top"
+                                alt="Exercise machines inside a gym"
+                                width="900" height="600"
+                                loading="lazy">
+                        </button>
 
                         <div class="card-body">
                             <h2 class="card-title">Gym space</h2>
@@ -48,11 +51,14 @@
                     </div>
 
                     <div class="card">
-                        <img
-                            src="https://images.unsplash.com/photo-1685633224688-6a77675eb119?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
-                            class="card-img-top"
-                            alt="Black dumbbells on a gym floor"
-                            loading="lazy">
+                        <button type="button" class="gallery-trigger" aria-label="Open Free weights" aria-haspopup="dialog" aria-controls="lightbox">
+                            <img
+                                src="https://images.unsplash.com/photo-1685633224688-6a77675eb119?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
+                                class="card-img-top"
+                                alt="Black dumbbells on a gym floor"
+                                width="900" height="600"
+                                loading="lazy">
+                        </button>
 
                         <div class="card-body">
                             <h2 class="card-title">Free weights</h2>
@@ -60,11 +66,14 @@
                     </div>
 
                     <div class="card">
-                        <img
-                            src="https://images.unsplash.com/photo-1633354129320-163fb10dd288?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
-                            class="card-img-top"
-                            alt="A woman exercising with dumbbells"
-                            loading="lazy">
+                        <button type="button" class="gallery-trigger" aria-label="Open Dumbbell workout" aria-haspopup="dialog" aria-controls="lightbox">
+                            <img
+                                src="https://images.unsplash.com/photo-1633354129320-163fb10dd288?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
+                                class="card-img-top"
+                                alt="A woman exercising with dumbbells"
+                                width="900" height="600"
+                                loading="lazy">
+                        </button>
 
                         <div class="card-body">
                             <h2 class="card-title">Dumbbell workout</h2>
@@ -72,11 +81,14 @@
                     </div>
 
                     <div class="card">
-                        <img
-                            src="https://images.unsplash.com/photo-1590487988256-9ed24133863e?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
-                            class="card-img-top"
-                            alt="Training equipment in a gym"
-                            loading="lazy">
+                        <button type="button" class="gallery-trigger" aria-label="Open Training equipment" aria-haspopup="dialog" aria-controls="lightbox">
+                            <img
+                                src="https://images.unsplash.com/photo-1590487988256-9ed24133863e?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
+                                class="card-img-top"
+                                alt="Training equipment in a gym"
+                                width="900" height="600"
+                                loading="lazy">
+                        </button>
 
                         <div class="card-body">
                             <h2 class="card-title">Training equipment</h2>
@@ -84,11 +96,14 @@
                     </div>
 
                     <div class="card">
-                        <img
-                            src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
-                            class="card-img-top"
-                            alt="Exercise equipment on a gym floor"
-                            loading="lazy">
+                        <button type="button" class="gallery-trigger" aria-label="Open Workout area" aria-haspopup="dialog" aria-controls="lightbox">
+                            <img
+                                src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
+                                class="card-img-top"
+                                alt="Exercise equipment on a gym floor"
+                                width="900" height="600"
+                                loading="lazy">
+                        </button>
 
                         <div class="card-body">
                             <h2 class="card-title">Workout area</h2>
@@ -96,11 +111,14 @@
                     </div>
 
                     <div class="card">
-                        <img
-                            src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
-                            class="card-img-top"
-                            alt="Strength training in a gym"
-                            loading="lazy">
+                        <button type="button" class="gallery-trigger" aria-label="Open Strength training" aria-haspopup="dialog" aria-controls="lightbox">
+                            <img
+                                src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80"
+                                class="card-img-top"
+                                alt="Strength training in a gym"
+                                width="900" height="600"
+                                loading="lazy">
+                        </button>
 
                         <div class="card-body">
                             <h2 class="card-title">Strength training</h2>
@@ -131,138 +149,22 @@
         </section>
     </main>
 
-    <div class="gallery-grid">
+    <dialog id="lightbox" class="lightbox" aria-label="Image gallery" aria-describedby="lightbox-caption">
+        <div class="lightbox-panel">
+            <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close gallery" autofocus>&times;</button>
+            <figure class="lightbox-figure">
+                <img id="lightbox-image" alt="">
+                <figcaption id="lightbox-caption" aria-live="polite"></figcaption>
+            </figure>
+            <div class="lightbox-controls">
+                <button type="button" id="lightbox-prev" class="lightbox-arrow" aria-label="Previous image">&#10094; Previous</button>
+                <span id="lightbox-count" aria-live="polite"></span>
+                <button type="button" id="lightbox-next" class="lightbox-arrow" aria-label="Next image">Next &#10095;</button>
+            </div>
+            <p class="lightbox-hint">Use left/right arrow keys to browse. Press Escape to close.</p>
+        </div>
+    </dialog>
 
-    <figure class="gallery-item">
-        <button type="button"
-                class="gallery-trigger"
-                data-index="0"
-                aria-label="Open gym photo 1">
-
-            <img src="images/placeholder.svg"
-                 alt="Gym training area"
-                 width="1200"
-                 height="800"
-                 loading="lazy">
-        </button>
-
-        <figcaption>Gym training area</figcaption>
-    </figure>
-
-    <figure class="gallery-item">
-        <button type="button"
-                class="gallery-trigger"
-                data-index="1"
-                aria-label="Open gym photo 2">
-
-            <img src="images/placeholder.svg"
-                 alt="Fitness equipment"
-                 width="1200"
-                 height="800"
-                 loading="lazy">
-        </button>
-
-        <figcaption>Fitness equipment</figcaption>
-    </figure>
-
-    <figure class="gallery-item">
-        <button type="button"
-                class="gallery-trigger"
-                data-index="2"
-                aria-label="Open gym photo 3">
-
-            <img src="images/placeholder.svg"
-                 alt="Strength training"
-                 width="1200"
-                 height="800"
-                 loading="lazy">
-        </button>
-
-        <figcaption>Strength training</figcaption>
-    </figure>
-
-    <figure class="gallery-item">
-        <button type="button"
-                class="gallery-trigger"
-                data-index="3"
-                aria-label="Open gym photo 4">
-
-            <img src="images/placeholder.svg"
-                 alt="Cardio training"
-                 width="1200"
-                 height="800"
-                 loading="lazy">
-        </button>
-
-        <figcaption>Cardio training</figcaption>
-    </figure>
-
-    <figure class="gallery-item">
-        <button type="button"
-                class="gallery-trigger"
-                data-index="4"
-                aria-label="Open gym photo 5">
-
-            <img src="images/placeholder.svg"
-                 alt="Group fitness"
-                 width="1200"
-                 height="800"
-                 loading="lazy">
-        </button>
-
-        <figcaption>Group fitness</figcaption>
-    </figure>
-
-    <figure class="gallery-item">
-        <button type="button"
-                class="gallery-trigger"
-                data-index="5"
-                aria-label="Open gym photo 6">
-
-            <img src="images/placeholder.svg"
-                 alt="Gym interior"
-                 width="1200"
-                 height="800"
-                 loading="lazy">
-        </button>
-
-        <figcaption>Gym interior</figcaption>
-    </figure>
- 
-    <div id="lightbox"
-     class="lightbox"
-     role="dialog"
-     aria-modal="true"
-     aria-label="Image gallery"
-     aria-hidden="true">
-
-    <button type="button"
-            id="lightbox-close"
-            class="lightbox-close"
-            aria-label="Close gallery">
-        &times;
-    </button>
-
-    <button type="button"
-            id="lightbox-prev"
-            class="lightbox-arrow"
-            aria-label="Previous image">
-        &#10094;
-    </button>
-
-    <img id="lightbox-image"
-         src=""
-         alt="Enlarged gym photo">
-
-    <button type="button"
-            id="lightbox-next"
-            class="lightbox-arrow"
-            aria-label="Next image">
-        &#10095;
-    </button>
-
-</div>
-</div>
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -298,6 +200,6 @@
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -478,3 +478,120 @@ a:focus {
     display: block;
     margin-top: 6px;
 }
+
+/* Gallery lightbox. */
+.gallery-trigger {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    background-color: #e3e8ef;
+    cursor: zoom-in;
+}
+
+.gallery-trigger img {
+    display: block;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+.gallery-trigger:hover img {
+    opacity: 0.85;
+}
+
+.gallery-trigger:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+body.gallery-open {
+    overflow: hidden;
+}
+
+.lightbox {
+    width: min(1000px, calc(100% - 24px));
+    max-width: none;
+    max-height: calc(100dvh - 24px);
+    margin: auto;
+    padding: 0;
+    overflow-y: auto;
+    border: 0;
+    border-radius: 12px;
+    color: white;
+    background-color: #111827;
+}
+
+.lightbox::backdrop {
+    background-color: rgba(10, 16, 28, 0.85);
+}
+
+.lightbox-panel {
+    position: relative;
+    padding: 60px 20px 16px;
+}
+
+.lightbox-figure {
+    margin: 0;
+    text-align: center;
+}
+
+#lightbox-image {
+    display: block;
+    width: 100%;
+    max-height: calc(100dvh - 240px);
+    min-height: 80px;
+    object-fit: contain;
+}
+
+#lightbox-caption {
+    margin-top: 12px;
+    font-size: 1.1rem;
+}
+
+.lightbox button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #74849b;
+    border-radius: 6px;
+    color: white;
+    background-color: #26344a;
+}
+
+.lightbox button:hover,
+.lightbox button:focus-visible {
+    background-color: #365176;
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.lightbox-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.lightbox-hint {
+    margin: 12px 0 0;
+    color: #c5cfdd;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+@media (max-width: 575px) {
+    .lightbox-panel {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}

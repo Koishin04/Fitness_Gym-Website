@@ -419,3 +419,74 @@ $(document).ready(function () {
         if (!valid) $form.find(".is-invalid").first().trigger("focus");
     });
 });
+
+$(document).ready(function () {
+    const dialog = document.getElementById("lightbox");
+    const $triggers = $(".gallery-trigger");
+    if (!dialog || !$triggers.length) return;
+
+    const $dialog = $(dialog);
+    const $image = $("#lightbox-image");
+    const reducedMotion = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const duration = reducedMotion ? 0 : 160;
+    let currentIndex = 0;
+    let opener = null;
+    let closing = false;
+
+    function showImage(index, animate) {
+        currentIndex = (index + $triggers.length) % $triggers.length;
+        const $thumbnail = $triggers.eq(currentIndex).find("img");
+        const caption = $triggers.eq(currentIndex).closest(".card").find(".card-title").text();
+        // Clear the previous animation so rapid navigation always shows the latest selection.
+        $image.stop(true, true).attr({ src: $thumbnail.attr("src"), alt: $thumbnail.attr("alt") });
+        $("#lightbox-caption").text(caption);
+        $("#lightbox-count").text((currentIndex + 1) + " / " + $triggers.length);
+        if (animate) $image.hide().fadeIn(duration);
+    }
+
+    function closeGallery() {
+        if (!dialog.open || closing) return;
+        closing = true;
+        $dialog.stop(true, true).fadeOut(duration, function () {
+            dialog.close();
+        });
+    }
+
+    $triggers.on("click", function () {
+        opener = this;
+        closing = false;
+        showImage($triggers.index(this), false);
+        // Native dialog handles focus trapping and makes the background inert.
+        $dialog.stop(true, true).hide();
+        dialog.showModal();
+        $("body").addClass("gallery-open");
+        $dialog.fadeIn(duration);
+        document.getElementById("lightbox-close").focus();
+    });
+
+    $("#lightbox-prev").on("click", function () { showImage(currentIndex - 1, true); });
+    $("#lightbox-next").on("click", function () { showImage(currentIndex + 1, true); });
+    $("#lightbox-close").on("click", closeGallery);
+    $dialog.on("cancel", function (event) {
+        event.preventDefault();
+        closeGallery();
+    });
+    $dialog.on("click", function (event) {
+        if (event.target === dialog) closeGallery();
+    });
+    $dialog.on("keydown", function (event) {
+        if (closing) return;
+        if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+            event.preventDefault();
+            showImage(currentIndex + (event.key === "ArrowLeft" ? -1 : 1), true);
+        }
+    });
+    $dialog.on("close", function () {
+        $dialog.stop(true, true).css({ display: "", opacity: "" });
+        $image.stop(true, true).show();
+        $("body").removeClass("gallery-open");
+        closing = false;
+        if (opener) opener.focus();
+    });
+});
