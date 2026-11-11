@@ -1,153 +1,126 @@
 # Fitness / Gym
 
-## Topic
+A responsive five-page website for a fictional gym in Astana, Kazakhstan.
+The Endterm extends the original Midterm website in the same repository,
+keeping its topic, pages, membership plans and responsive layout while
+adding JavaScript and jQuery interactions.
 
-Fitness / Gym Website.
+- [Published website](https://koishin04.github.io/Fitness_Gym-Website/)
+- [Project repository](https://github.com/Koishin04/Fitness_Gym-Website)
 
 ## Team
 
 - Bakhtiyar Koishin — SE-2540
-- Aldiyar Zhurek - SE-2540
-- Kaisar Ashymbai- SE-2540
-
-## Description
-
-This project is a responsive five-page website template for a gym.
-
-It includes gym information, membership options, a photo gallery,
-and a demo membership request form.
-
-The layout uses HTML, CSS, Flexbox, CSS Grid, and Bootstrap.
+- Aldiyar Zhurek — SE-2540
+- Kaisar Ashymbai — SE-2540
 
 ## Pages
 
- - Home : Introduction and links to the main sections 
- - About :Gym information and features 
- - Memberships | Membership cards and a comparison table 
- - Gallery | Responsive image gallery 
- - Contact | Contact information and a demo membership form 
-
-## Features
-
-- Shared navigation and footer on all five pages.
-- Semantic HTML elements.
-- Flexbox navigation.
-- Bootstrap columns and utility classes.
-- CSS Grid gallery.
-- Responsive layouts for desktop, tablet, and mobile.
-- External stylesheet.
-- CSS variables.
-- Hover and keyboard focus styles.
-- Alternating table rows with nth-child().
-- Lazy loading for gallery images.
-- Google Fonts.
-- Required-field and email checks in the demo form.
-
-## Individual Contribution
-
-
-| Member | Responsibility |
-| Bakhtiyar | Project setup, shared styles, Home page, responsive navigation, deployment |
-| Алдияр | About page, Memberships page, membership cards and table styles |
-| Кайсар | Gallery page, Contact page, form styles, README |
-
-## Form Behaviour
-
-The membership form is a frontend demonstration.
-
-The browser checks the required name, email, and membership fields.
-After a valid submission, the page displays a demo notice.
-
-The form does not send or save membership requests.
-Personal details are not included in the URL.
-There is no backend, database, or payment system.
-
-## Run Locally
-
-Open index.html in a browser.
-
-The Bootstrap stylesheet must be present at css/bootstrap.min.css.
-An internet connection is needed to load Google Fonts.
-
-## Website
-
-Planned GitHub Pages address:
-
-https://koishin04.github.io/fitness-gym-midterm/
-
-Verify this address after enabling GitHub Pages.
-
-## Content to Complete Before Submission
-
-- Replace all text inside square brackets.
-- Add the chosen color palette to the variables in css/style.css.
-- Add the selected photos to the images folder.
-- Update image src, alt, width, and height values.
-- Add membership names, descriptions, periods, and prices.
-- Use the same membership names in the cards, table, and form.
-- Add contact information consistently on every page.
-- Add real href values to the social links and remove aria-disabled.
-- Complete the team names and groups.
-- Check all five pages on desktop and mobile.
-- Verify the published website link.
-
-The placeholder content and inactive social links must be replaced
-before the project is ready for submission.
-
-## Endterm Features
-
-### 1. JavaScript Form Validation
-- Required name, email, password and message fields.
-- Email validation using Regular Expressions.
-- Password strength indicator.
-- Password confirmation.
-- Real-time validation messages.
-- Form submission prevention when validation fails.
-
-### 2. Dynamic Search and Filter
-- Real-time program search.
-- Category filters.
-- Case-insensitive search.
-- Dynamic content updates without page reload.
-- jQuery input and click events.
-
-### 3. CRUD Operations
-- Create new training programs.
-- Read and display program records.
-- Update existing programs.
-- Delete programs with confirmation.
-- Save program data using localStorage.
-
-### 4. Image Gallery
-- Responsive image grid.
-- Lightbox image preview.
-- Next and previous navigation.
-- Keyboard navigation.
-- jQuery fadeIn(), fadeOut() and animate() effects.
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- Bootstrap 5
-- JavaScript
-- jQuery 3.7.1
-- Regular Expressions
-- localStorage
-- Git and GitHub
-
-## Endterm Individual Contributions
-
-| Team Member | Contribution |
+| Page | Contents |
 |---|---|
-| Bakhtiyar Koishin | JavaScript setup, dynamic search and category filtering |
-| Aldiyar | CRUD operations, dynamic training program table |
-| Kaysar | Registration form validation, password strength, image gallery lightbox |
+| Home | Gym introduction and links to the main sections |
+| About | Gym information and features |
+| Memberships | Membership plans, comparison table, program search, filters and CRUD |
+| Gallery | Responsive photo grid and interactive lightbox |
+| Contact | Gym details and registration validation demo |
 
-## Project Repository
+## Endterm features
 
-https://github.com/Koishin04/fitness-gym-midterm
+### Registration validation — Contact
 
-## Published Website
+- Required name, email, password, password confirmation and message.
+- Email checked with a regular expression; names support Unicode letters.
+- Animated, colored password strength indicator: Weak, Medium or Strong.
+- Minimum password length of 8 characters and matching confirmation.
+- Immediate feedback during typing, with field highlights and accessible messages.
+- Invalid submissions are prevented and focus moves to the first invalid field.
+- Valid submissions show a success notice without reloading the page.
 
-https://koishin04.github.io/fitness-gym-midterm/
+This is a frontend demonstration: no account is created, no form data or
+password is sent or stored, and there is no backend or payment system.
+The strength indicator is a simple demonstration, not a security guarantee.
+
+### Dynamic search and filtering — Memberships
+
+- Case-insensitive search over program names and descriptions as the user types.
+- All, Strength, Cardio and Group category buttons, combined with the search term.
+- Results, result count and empty-state messages update without a page reload.
+- Search and CRUD use the same program array, so every change is reflected immediately.
+
+### CRUD — Memberships
+
+- Create programs with a name, category and description.
+- Read records in the program table and search results.
+- Edit existing programs in a modal dialog, with validation, Save and Cancel.
+- Delete records only after confirmation.
+- Store programs in `localStorage` under `gymPrograms` and restore them after reload.
+- Keep an empty list empty; recover from invalid saved data using sample programs.
+- Report when browser storage is unavailable.
+
+Program changes belong to the current browser and website origin. They are
+not shared with other users. The original membership pricing cards remain separate.
+
+### Image gallery — Gallery
+
+- Six stock photos in a responsive CSS Grid with Bootstrap cards.
+- Click a photo to open a modal lightbox with its caption and image counter.
+- Previous/Next buttons and left/right arrow keys cycle through all six photos.
+- Close with the close button, Escape or the backdrop.
+- Keyboard focus stays inside the dialog and returns to the selected photo on close.
+- jQuery `fadeIn()` and `fadeOut()` effects; reduced-motion preferences are respected.
+
+## Design and technologies
+
+- HTML5 semantic structure, shared navigation and footer.
+- CSS3, Flexbox, CSS Grid, CSS variables and responsive media queries.
+- Bootstrap 5.3.8 stylesheet in `css/bootstrap.min.css`.
+- JavaScript and jQuery 3.7.1, with event handlers and DOM updates in `js/script.js`.
+- Regular expressions, native HTML dialogs and `localStorage`.
+- External styles in `css/style.css`, hover/focus states and alternating table rows.
+- Google Fonts (Roboto) and lazy-loaded Unsplash gallery images.
+- Git, GitHub and GitHub Pages deployment from `main`.
+
+## Individual contributions
+
+| Member | Contribution |
+|---|---|
+| Bakhtiyar Koishin (`Koishin04`) | Project setup, shared styles, Home page, responsive navigation and deployment; integration of search with CRUD, persistent program table and modal editing; completed registration fixes, password indicator, working lightbox and final README updates. |
+| Aldiyar Zhurek | About and Memberships pages, membership cards/table layout, initial program search and category filtering. |
+| Kaisar Ashymbai | Original Gallery and Contact pages, initial registration validation and gallery markup, initial Endterm documentation. |
+
+The final registration and lightbox fixes are committed by Bakhtiyar Koishin.
+Earlier contributions remain recorded in the repository history.
+
+## Run locally
+
+Clone the repository and serve its root with any static web server. For example,
+with Python installed:
+
+```sh
+git clone https://github.com/Koishin04/Fitness_Gym-Website.git
+cd Fitness_Gym-Website
+python -m http.server 8000
+```
+
+Open [the local website](http://localhost:8000). No build step or npm installation
+is required. An internet connection is needed for jQuery, Google Fonts and
+remote stock photos. Use a current browser that supports native HTML dialogs.
+
+## Manual verification
+
+1. On Contact, submit an empty form and check field errors. Try a malformed email,
+   short password and mismatched confirmation. Then enter valid sample data and
+   check the success notice. Change the password and check confirmation again.
+2. On Memberships, add a program, search for it with different capitalization,
+   combine the search with a category, edit it in the modal, and reload to check
+   persistence. Verify both cancelling and confirming deletion.
+3. On Gallery, open each photo, navigate past both ends, use arrow keys and Escape,
+   and check that focus returns to the selected thumbnail.
+4. Check all five pages at desktop and phone widths. The program table can scroll
+   horizontally on small screens.
+
+## Demo content
+
+The gym, contact details and prices are fictional. Photos are stock images from
+[Unsplash](https://unsplash.com/), not photographs of a real Fitness / Gym branch.
+Social links lead to the platforms' homepages.
