@@ -5,31 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Fitness / Gym</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
     <link rel="stylesheet" href="css/style.css">
     
 </head>
-<body>
+<body class="page-about">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
         <div class="container header-content">
             <a href="index.html" class="logo">Fitness <span>/ Gym</span></a>
 
-            <nav class="nav-links">
+            <nav class="nav-links" aria-label="Main navigation">
                 <a href="index.html">Home</a>
-                <a href="about.html" class="active">About</a>
+                <a href="about.html" class="active" aria-current="page">About</a>
                 <a href="memberships.html">Memberships</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="contact.html">Contact</a>
             </nav>
+            <a href="contact.html" class="btn gym-button header-cta">Join the gym <span aria-hidden="true">↗</span></a>
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="section">
             <div class="container">
                 <div class="page-heading">
                     <p class="eyebrow">About us</p>
-                    <h1>A gym for everyday training</h1>
+                    <h1>A space to<br>find your <span>strength.</span></h1>
                     <p class="muted">
                         Train before classes, after work, or at the weekend.
                     </p>
@@ -149,7 +151,7 @@
 
             <p class="copyright">
                 &copy; 2026 Fitness / Gym.
-                Student demo: fictional gym and prices; stock photos.
+                Student demo: fictional gym and prices; stock and AI-generated imagery.
             </p>
         </div>
     </footer>

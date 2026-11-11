@@ -5,59 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Fitness / Gym</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-index">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
         <div class="container header-content">
             <a href="index.html" class="logo">Fitness <span>/ Gym</span></a>
 
-            <nav class="nav-links">
-                <a href="index.html" class="active">Home</a>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="index.html" class="active" aria-current="page">Home</a>
                 <a href="about.html">About</a>
                 <a href="memberships.html">Memberships</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="contact.html">Contact</a>
             </nav>
+            <a href="contact.html" class="btn gym-button header-cta">Join the gym <span aria-hidden="true">↗</span></a>
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="hero">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 mb-3">
-                        <p class="eyebrow">Fitness / Gym · Astana</p>
-
-                        <h1 id="home-title">
-                            Make training part of your week.
-                        </h1>
-
-                        <p class="intro">
-                            A friendly space for students, beginners, and regular
-                            gym members. Find your routine with weights, cardio,
-                            and group sessions.
-                        </p>
-
-                        <div class="hero-actions">
-                            <a href="memberships.html" class="btn btn-primary gym-button">
-                                View memberships
-                            </a>
-                            <a href="about.html">About the gym</a>
-                        </div>
-
-                        <p class="muted mt-3">
-                            Weekdays: 07:00–23:00<br>
-                            Weekends: 09:00–21:00
-                        </p>
+                <div class="hero-banner">
+                    <p class="eyebrow">Astana · Fitness &amp; training</p>
+                    <h1 id="home-title">Make time for<br>a stronger <span>you.</span></h1>
+                    <p class="intro">Strength, cardio and group training.<br>Find a routine that works for you.</p>
+                    <div class="hero-actions">
+                        <a href="memberships.html" class="btn gym-button">Explore memberships <span aria-hidden="true">↗</span></a>
+                        <a href="about.html" class="hero-secondary">About the gym <span aria-hidden="true">→</span></a>
                     </div>
-
-                    <div class="col-lg-6">
-                        <img src="images/gym-main.jpg" class="content-photo"
-                             alt="The main gym photo"
-                             width="1200" height="800">
-                    </div>
+                    <p class="hero-hours">Mon–Fri 07:00–23:00 &nbsp; / &nbsp; Sat–Sun 09:00–21:00</p>
+                </div>
+                <div class="benefit-strip">
+                    <div><span>01</span><p><strong>Strength training</strong>Free weights &amp; machines</p></div>
+                    <div><span>02</span><p><strong>Cardio area</strong>Move at your own pace</p></div>
+                    <div><span>03</span><p><strong>Group sessions</strong>Find your training community</p></div>
                 </div>
             </div>
         </section>
@@ -73,7 +57,7 @@
 
                 <div class="row">
                     <div class="col-md-6 col-lg-4 mb-3">
-                        <div class="card info-card">
+                        <div class="card info-card activity-card">
                             <span class="card-number">01</span>
                             <h3>Strength training</h3>
                             <p>
@@ -85,7 +69,7 @@
                     </div>
 
                     <div class="col-md-6 col-lg-4 mb-3">
-                        <div class="card info-card">
+                        <div class="card info-card activity-card">
                             <span class="card-number">02</span>
                             <h3>Cardio area</h3>
                             <p>
@@ -97,7 +81,7 @@
                     </div>
 
                     <div class="col-md-6 col-lg-4 mb-3">
-                        <div class="card info-card">
+                        <div class="card info-card activity-card">
                             <span class="card-number">03</span>
                             <h3>Group sessions</h3>
                             <p>
@@ -153,7 +137,7 @@
                     </div>
                 </div>
             </div>
-            <p class="copyright">2026 Fitness_Gym</p>
+            <p class="copyright">© 2026 Fitness / Gym. Student demo: fictional gym and prices.</p>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

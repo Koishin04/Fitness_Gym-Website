@@ -5,39 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memberships | Fitness / Gym</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-memberships">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
         <div class="container header-content">
             <a href="index.html" class="logo">Fitness <span>/ Gym</span></a>
 
-            <nav class="nav-links">
+            <nav class="nav-links" aria-label="Main navigation">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="memberships.html" class="active">Memberships</a>
+                <a href="memberships.html" class="active" aria-current="page">Memberships</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="contact.html">Contact</a>
             </nav>
+            <a href="contact.html" class="btn gym-button header-cta">Join the gym <span aria-hidden="true">↗</span></a>
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="section">
             <div class="container">
                 <div class="page-heading">
                     <p class="eyebrow">Memberships</p>
-                    <h1>Choose your monthly plan</h1>
+                    <h1>Build your<br>training <span>routine.</span></h1>
                     <p class="muted">
                         Pick the access hours and sessions that fit your routine.
                     </p>
                 </div>
 
-                <div class="row">
+                <div class="row plans-row">
                     <div class="col-md-6 col-lg-4 mb-3">
                         <div class="card info-card">
-                            <h2>Starter</h2>
+                            <div class="plan-top"><span class="plan-symbol" aria-hidden="true">01</span></div><h2>Starter</h2>
                             <p class="muted">For daytime workouts.</p>
 
                             <p class="price">
@@ -51,14 +53,14 @@
                             </ul>
 
                             <a href="contact.html" class="btn btn-primary gym-button">
-                                Membership form
+                                Choose plan <span aria-hidden="true">→</span>
                             </a>
                         </div>
                     </div>
 
                     <div class="col-md-6 col-lg-4 mb-3">
                         <div class="card info-card featured-plan">
-                            <h2>Standard</h2>
+                            <div class="plan-top"><span class="plan-symbol" aria-hidden="true">02</span><span class="plan-tag">GROUP TRAINING</span></div><h2>Standard</h2>
                             <p class="muted">For a flexible weekly routine.</p>
 
                             <p class="price">
@@ -72,14 +74,14 @@
                             </ul>
 
                             <a href="contact.html" class="btn btn-primary gym-button">
-                                Membership form
+                                Choose plan <span aria-hidden="true">→</span>
                             </a>
                         </div>
                     </div>
 
                     <div class="col-md-6 col-lg-4 mb-3">
                         <div class="card info-card">
-                            <h2>Plus</h2>
+                            <div class="plan-top"><span class="plan-symbol" aria-hidden="true">03</span></div><h2>Plus</h2>
                             <p class="muted">For training with extra support.</p>
 
                             <p class="price">
@@ -93,7 +95,7 @@
                             </ul>
 
                             <a href="contact.html" class="btn btn-primary gym-button">
-                                Membership form
+                                Choose plan <span aria-hidden="true">→</span>
                             </a>
                         </div>
                     </div>
@@ -101,7 +103,7 @@
             </div>
         </section>
 
-        <section class="section" aria-labelledby="program-search-title">
+        <section class="section search-section" aria-labelledby="program-search-title">
             <div class="container">
                 <h2 id="program-search-title" class="mb-4">Find your training program</h2>
 
@@ -137,7 +139,7 @@
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label for="program-name" class="form-label">Program Name</label>
-                            <input type="text" id="program-name" class="form-control"
+                            <input type="text" id="program-name" class="form-control" placeholder="Enter program name"
                                    minlength="2" maxlength="80" required>
                         </div>
 
@@ -153,14 +155,14 @@
 
                         <div class="col-12">
                             <label for="program-description" class="form-label">Description</label>
-                            <textarea id="program-description" class="form-control"
+                            <textarea id="program-description" class="form-control" placeholder="Enter a short description"
                                       rows="3" maxlength="500" required></textarea>
                         </div>
                     </div>
 
                     <div class="program-form-actions mt-4">
                         <button type="submit" id="save-program" class="btn gym-button">
-                            Save Program
+                            Add program <span aria-hidden="true">→</span>
                         </button>
                     </div>
                 </form>
@@ -222,11 +224,11 @@
             </div>
         </section>
 
-        <section class="section section-white">
+        <section class="section section-white comparison-section">
             <div class="container">
                 <h2 class="mb-3">Compare memberships</h2>
 
-                <table class="membership-table">
+                <div class="comparison-scroll" role="region" tabindex="0" aria-label="Membership comparison"><table class="membership-table">
                     <caption>
                         Monthly plans. Prices are examples for a student project.
                     </caption>
@@ -283,7 +285,7 @@
                             <td>Included</td>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
 
                 <p class="muted mt-3">
                     Monday–Friday: 07:00–23:00.<br>
@@ -323,7 +325,7 @@
 
             <p class="copyright">
                 &copy; 2026 Fitness / Gym.
-                Student demo: fictional gym and prices; stock photos.
+                Student demo: fictional gym and prices; stock and AI-generated imagery.
             </p>
         </div>
     </footer>

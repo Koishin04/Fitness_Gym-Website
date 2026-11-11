@@ -1,0 +1,4 @@
+Generated with the built-in image_gen tool for Fitness / Gym.
+
+Prompt:
+Create a premium editorial fitness photograph for a website hero background, wide landscape 3:2 composition. Adult athletic man with short dark hair, black plain unbranded training t-shirt, waist up leaning forward in a resting position between sets, located in the RIGHT THIRD of the image, looking to the right, concentrated natural expression. Modern gym background, dark charcoal and near-black moody lighting, subtle realistic rim light. Entire LEFT HALF is very dark almost black empty gym space with no distracting objects, reserved for white website headline overlaid in code. A bold diagonal lime green illuminated panel behind the man on the right echoes modern fitness branding. Natural proportions, highly photographic, premium commercial sports editorial, not bodybuilder exaggerated anatomy. NO text, NO letters, NO logos, NO watermarks, NO interface, NO borders.

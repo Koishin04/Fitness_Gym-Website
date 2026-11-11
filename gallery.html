@@ -5,30 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Fitness / Gym</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-gallery">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
         <div class="container header-content">
             <a href="index.html" class="logo">Fitness <span>/ Gym</span></a>
 
-            <nav class="nav-links">
+            <nav class="nav-links" aria-label="Main navigation">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="memberships.html">Memberships</a>
-                <a href="gallery.html" class="active">Gallery</a>
+                <a href="gallery.html" class="active" aria-current="page">Gallery</a>
                 <a href="contact.html">Contact</a>
             </nav>
+            <a href="contact.html" class="btn gym-button header-cta">Join the gym <span aria-hidden="true">↗</span></a>
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="section">
             <div class="container">
                 <div class="page-heading">
                     <p class="eyebrow">Gallery</p>
-                    <h1>Spaces, equipment, and workouts</h1>
+                    <h1>Take a look<br><span>inside the gym.</span></h1>
                     <p class="muted">
                         Stock photos showing the atmosphere of a gym.
                     </p>
@@ -195,7 +197,7 @@
 
             <p class="copyright">
                 &copy; 2026 Fitness / Gym.
-                Student demo: fictional gym and prices; stock photos.
+                Student demo: fictional gym and prices; stock and AI-generated imagery.
             </p>
         </div>
     </footer>

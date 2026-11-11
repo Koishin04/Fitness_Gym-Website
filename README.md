@@ -77,7 +77,7 @@ not shared with other users. The original membership pricing cards remain separa
 - JavaScript and jQuery 3.7.1, with event handlers and DOM updates in `js/script.js`.
 - Regular expressions, native HTML dialogs and `localStorage`.
 - External styles in `css/style.css`, hover/focus states and alternating table rows.
-- Google Fonts (Roboto) and lazy-loaded Unsplash gallery images.
+- Google Fonts (Manrope) and lazy-loaded Unsplash gallery images.
 - Git, GitHub and GitHub Pages deployment from `main`.
 
 ## Individual contributions
@@ -121,6 +121,18 @@ remote stock photos. Use a current browser that supports native HTML dialogs.
 
 ## Demo content
 
-The gym, contact details and prices are fictional. Photos are stock images from
+The gym, contact details and prices are fictional. Gallery photos are stock images from
 [Unsplash](https://unsplash.com/), not photographs of a real Fitness / Gym branch.
+The shared hero image at `images/training-hero.png` was created with built-in
+image generation; its generation brief is saved in `images/training-hero.prompt.txt`.
 Social links lead to the platforms' homepages.
+
+## Visual redesign
+
+All five pages use the selected reference style: near-black banners, lime accents,
+off-white backgrounds, rounded cards and Manrope typography. Memberships includes
+photo-backed program cards, a compact desktop create form, styled tables and the
+existing edit dialog. Small-screen layouts stack the cards and forms; wide tables
+scroll inside their own regions. Navigation includes a skip link and current-page state.
+The redesign preserves the existing registration, search, CRUD and lightbox behavior.
+Implemented by Bakhtiyar Koishin (`Koishin04`).
