@@ -442,7 +442,7 @@ $(document).ready(function () {
         $image.stop(true, true).attr({ src: $thumbnail.attr("src"), alt: $thumbnail.attr("alt") });
         $("#lightbox-caption").text(caption);
         $("#lightbox-count").text((currentIndex + 1) + " / " + $triggers.length);
-        if (animate) $image.hide().fadeIn(duration);
+        if (animate) $image.css("opacity", 0).animate({ opacity: 1 }, duration);
     }
 
     function closeGallery() {
