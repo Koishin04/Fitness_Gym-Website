@@ -421,9 +421,9 @@ body.gallery-open {
 #program-count { color: var(--muted); font-size: .8rem; }
 .program-card { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: flex-end; min-height: 260px; padding: 24px; overflow: hidden; border-radius: 20px; color: white; background: #152016 center / cover; }
 .program-card::before, .activity-card::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, #080e0bf2 5%, #080e0b70 70%, #080e0b22); }
-.program-card[data-category="strength"], .activity-card { background-image: url('https://images.unsplash.com/photo-1685633224688-6a77675eb119?auto=format&fit=crop&w=900&h=600&q=80'); }
-.program-card[data-category="cardio"], .page-index .col-md-6:nth-child(2) .activity-card { background-image: url('https://images.unsplash.com/photo-1633354129320-163fb10dd288?auto=format&fit=crop&w=900&h=600&q=80'); }
-.program-card[data-category="group"], .page-index .col-md-6:nth-child(3) .activity-card { background-image: url('https://images.unsplash.com/photo-1637430308606-86576d8fef3c?auto=format&fit=crop&w=900&h=600&q=80'); }
+.program-card[data-category="strength"], .activity-card { background-image: url('../images/stock-7.jpg'); }
+.program-card[data-category="cardio"], .page-index .col-md-6:nth-child(2) .activity-card { background-image: url('../images/stock-4.jpg'); }
+.program-card[data-category="group"], .page-index .col-md-6:nth-child(3) .activity-card { background-image: url('../images/stock-5.jpg'); }
 .program-card p { font-size: .85rem; margin-bottom: 0; }
 .program-card .badge { position: absolute; top: 20px; left: 20px; border-radius: 24px; padding: 7px 14px; background: var(--accent) !important; color: var(--text); text-transform: capitalize; }
 .activity-card { position: relative; isolation: isolate; overflow: hidden; min-height: 340px; color: white; background-size: cover; background-position: center; justify-content: flex-end; }
