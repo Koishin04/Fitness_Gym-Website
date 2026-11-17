@@ -77,7 +77,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     async function request(url, signal) {
         const response = await fetch(url, {signal: signal, headers: {Accept: "application/json"}});
+        if (!response.ok) throw new Error("HTTP " + response.status);
         const data = await response.json();
+        if (!data || !Array.isArray(data.results)) throw new Error("Invalid API response");
         return data;
     }
     async function load(append) {
@@ -89,11 +91,13 @@ document.addEventListener("DOMContentLoaded", function () {
         refresh.disabled = more.disabled = true;
         catalog.setAttribute("aria-busy", "true");
         render();
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 15000);
         try {
             const [data, licenseData] = await Promise.all([
-                request(url, undefined),
+                request(url, controller.signal),
                 licenses.length ? Promise.resolve({results: licenses})
-                    : request("https://wger.de/api/v2/license/?limit=100", undefined)
+                    : request("https://wger.de/api/v2/license/?limit=100", controller.signal)
             ]);
             const normalized = data.results.flatMap(function (item) {
                 if (!Number.isSafeInteger(item.id) || !Array.isArray(item.translations)) return [];
@@ -113,6 +117,9 @@ document.addEventListener("DOMContentLoaded", function () {
             let validatedNext = null;
             if (data.next) {
                 const next = new URL(data.next);
+                if (next.origin !== "https://wger.de" || next.pathname !== "/api/v2/exerciseinfo/") {
+                    throw new Error("Invalid pagination URL");
+                }
                 validatedNext = next.href;
             }
             licenses = licenseData.results;
@@ -120,9 +127,12 @@ document.addEventListener("DOMContentLoaded", function () {
             nextPage = validatedNext;
             updateCategories();
         } catch (failure) {
-            error.textContent = "Could not load exercises from wger. Check your connection and try again.";
+            error.textContent = failure.name === "AbortError"
+                ? "The exercise service took too long to respond. Try again."
+                : "Could not load exercises from wger. Check your connection and try again.";
             if (exercises.length) error.textContent += " Previously loaded exercises are still available.";
         } finally {
+            clearTimeout(timeout);
             loading = false;
             refresh.disabled = more.disabled = false;
             more.hidden = !nextPage;
