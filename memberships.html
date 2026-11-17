@@ -46,6 +46,7 @@
                 <div class="page-heading">
                     <p class="eyebrow">Memberships</p>
                     <h1>Build your<br>training <span>routine.</span></h1>
+                    <a href="#exercise-catalog" class="btn gym-button">Explore exercise catalog ↗</a>
                     <p class="muted">
                         Pick the access hours and sessions that fit your routine.
                     </p>
@@ -144,6 +145,25 @@
             </div>
         </section>
 
+        <section id="exercise-catalog" class="section" aria-labelledby="exercise-title" aria-busy="false">
+            <div class="container exercise-panel">
+                <div class="catalog-heading">
+                    <div><p class="eyebrow">Find your next movement</p><h2 id="exercise-title">Explore exercises.</h2></div>
+                    <button type="button" id="exercise-refresh" class="btn btn-outline-dark">Refresh</button>
+                </div>
+                <p class="muted">Exercise data from <a href="https://wger.de">wger</a>. Search the loaded exercises by name, equipment or muscle, then narrow down the body area. Load more to expand the catalog.</p>
+                <div class="exercise-filters">
+                    <div><label for="exercise-search" class="form-label">Search exercises</label><input type="search" id="exercise-search" class="form-control" placeholder="Try bench, dumbbell or abs"></div>
+                    <div><label for="exercise-category" class="form-label">Body area</label><select id="exercise-category" class="form-select"><option value="all">All body areas</option></select></div>
+                    <button type="button" id="exercise-clear" class="btn btn-outline-dark">Clear filters</button>
+                </div>
+                <p id="exercise-status" role="status" class="form-note">Loading exercises…</p>
+                <p id="exercise-error" role="alert" class="catalog-error"></p>
+                <div id="exercise-results" class="exercise-grid"></div>
+                <button type="button" id="exercise-more" class="btn gym-button mt-3" hidden>Load more exercises</button>
+                <p class="form-note mt-3 mb-0">Community exercise descriptions retain their original author and license, shown under Exercise instructions. This catalog is separate from your editable gym programs below.</p>
+            </div>
+        </section>
         <section class="section" id="program-management" aria-labelledby="management-title">
             <div class="container">
                 <h2 id="management-title" class="mb-4">Manage Training Programs</h2>
