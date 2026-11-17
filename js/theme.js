@@ -2,6 +2,9 @@
 (function () {
     const key = "gymTheme";
     let theme = "light";
+    try {
+        if (localStorage.getItem(key) === "dark") theme = "dark";
+    } catch (_) { /* The toggle still works when storage is unavailable. */ }
 
     function applyTheme(value) {
         theme = value === "dark" ? "dark" : "light";
@@ -17,6 +20,16 @@
         applyTheme(theme);
         document.getElementById("theme-toggle").addEventListener("click", function () {
             applyTheme(theme === "light" ? "dark" : "light");
+            const status = document.getElementById("theme-status");
+            try {
+                localStorage.setItem(key, theme);
+                status.textContent = "";
+            } catch (_) {
+                status.textContent = "Theme changed for this page. Browser storage is unavailable.";
+            }
         });
+    });
+    window.addEventListener("storage", function (event) {
+        if (event.key === key || event.key === null) applyTheme(event.newValue);
     });
 })();
