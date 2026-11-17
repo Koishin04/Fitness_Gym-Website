@@ -96,3 +96,5 @@ html[data-theme="dark"] .login-error { color: #ffaaa6; }
 html[data-theme="dark"] .catalog-error { color: #ffaaa6; }
 @media(max-width:991px) { .exercise-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media(max-width:575px) { .exercise-grid, .exercise-filters { grid-template-columns: 1fr; } .exercise-panel { padding: 24px 18px; } .catalog-heading { align-items: start; } }
+
+.ai-credit { max-width: 900px; margin: 24px 0 0; color: #b5c0af; font-size: .75rem; }
