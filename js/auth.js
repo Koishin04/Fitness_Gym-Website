@@ -94,6 +94,14 @@ document.addEventListener("DOMContentLoaded", function () {
         notice.textContent = "You have signed out.";
         openButton.focus();
     });
+    window.addEventListener("storage", function (event) {
+        if (event.key === key || event.key === null) {
+            session = readSession();
+            renderSession();
+            notice.textContent = "Sign-in state updated from another tab.";
+            if (dialog.open) dialog.close();
+        }
+    });
     session = readSession();
     renderSession();
 });
