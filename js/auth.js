@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById("login-password");
     let session = null;
 
+    function readSession() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(key));
+            return saved && saved.signedIn === true && typeof saved.name === "string"
+                && saved.name.trim().length >= 2 && saved.name.length <= 60 ? saved : null;
+        } catch (_) { return null; }
+    }
     function renderSession() {
         openButton.hidden = Boolean(session);
         document.getElementById("member-controls").hidden = !session;
@@ -64,16 +71,29 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
         const candidate = {signedIn: true, name: nameInput.value.trim()};
+        try {
+            localStorage.setItem(key, JSON.stringify(candidate));
+        } catch (_) {
+            document.getElementById("sign-in-status").textContent = "Sign-in needs browser storage. Allow it and try again.";
+            return;
+        }
         session = candidate;
         renderSession();
         notice.textContent = "Signed in to the demo on this browser.";
         dialog.close();
     });
     signOut.addEventListener("click", function () {
+        try {
+            localStorage.removeItem(key);
+        } catch (_) {
+            notice.textContent = "Could not clear the saved sign-in. Allow browser storage and try again.";
+            return;
+        }
         session = null;
         renderSession();
         notice.textContent = "You have signed out.";
         openButton.focus();
     });
+    session = readSession();
     renderSession();
 });
