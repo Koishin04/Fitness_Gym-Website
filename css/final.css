@@ -1,0 +1,59 @@
+/* Final project additions share the original lime and charcoal palette. */
+:root { --surface: #fff; --input-bg: #fafbf8; --soft-bg: #e9ede4; --link: #334d21; }
+[hidden] { display: none !important; }
+.header-content { flex-wrap: wrap; padding: 20px 0; gap: 12px 20px; }
+.header-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.header-tools .btn { padding: 9px 14px; font-size: .8rem; }
+.header-notice { margin: 0; font-size: .85rem; }
+.header-notice:empty { display: none; }
+html[data-theme="dark"] {
+    color-scheme: dark;
+    --page-bg: #111714; --text: #eef3e9; --muted: #b5c2af;
+    --border: #42503e; --surface: #1c251f; --input-bg: #151d18;
+    --soft-bg: #283428; --link: #bdff58;
+    --bs-body-color: #eef3e9; --bs-body-bg: #111714;
+    --bs-secondary-color: #b5c2af;
+}
+html[data-theme="dark"] a { color: var(--link); }
+html[data-theme="dark"] .logo { color: var(--text); }
+html[data-theme="dark"] .nav-links a { color: var(--muted); }
+html[data-theme="dark"] .nav-links a:hover { color: var(--text); background: var(--soft-bg); }
+html[data-theme="dark"] .nav-links .active,
+html[data-theme="dark"] .gym-button,
+html[data-theme="dark"] .btn-primary,
+html[data-theme="dark"] .plan-symbol,
+html[data-theme="dark"] .plan-tag,
+html[data-theme="dark"] .program-card .badge,
+html[data-theme="dark"] .skip-link { color: #111714; }
+html[data-theme="dark"] .info-card:not(.activity-card):not(.featured-plan):not(.contact-details),
+html[data-theme="dark"] .gallery-grid .card,
+html[data-theme="dark"] .contact-form,
+html[data-theme="dark"] .search-section > .container,
+html[data-theme="dark"] #program-management > .container,
+html[data-theme="dark"] .comparison-section > .container,
+html[data-theme="dark"] #program-management .program-dialog { background: var(--surface); color: var(--text); }
+html[data-theme="dark"] .form-control,
+html[data-theme="dark"] .form-select,
+html[data-theme="dark"] #program-management .form-control,
+html[data-theme="dark"] #program-management .form-select { color: var(--text); background-color: var(--input-bg); border-color: var(--border); }
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder { color: #9ead98; }
+html[data-theme="dark"] .membership-table { background: var(--surface); color: var(--text); }
+html[data-theme="dark"] .membership-table thead,
+html[data-theme="dark"] .membership-table tbody tr:nth-child(even) { background: var(--soft-bg); }
+html[data-theme="dark"] .membership-table td,
+html[data-theme="dark"] .membership-table th { border-color: var(--border); }
+html[data-theme="dark"] #program-management .program-table td:nth-child(3) { color: var(--accent); }
+html[data-theme="dark"] #program-management .program-table .btn-primary { color: var(--text); background: var(--soft-bg); }
+html[data-theme="dark"] .btn-outline-dark:hover,
+html[data-theme="dark"] .btn-outline-dark.active { background: var(--accent); color: #111714; }
+html[data-theme="dark"] .plans-row .gym-button { background: var(--accent); color: #111714; }
+html[data-theme="dark"] #registration-form .field-feedback { color: #a5dfb7; }
+html[data-theme="dark"] .text-danger { color: #ffaaa6 !important; }
+html[data-theme="dark"] #program-management .program-empty { color: var(--muted); }
+html[data-theme="dark"] :focus-visible { outline-color: var(--accent); }
+@media (max-width: 767px) {
+    .header-content { justify-content: center; }
+    .nav-links { justify-content: center; }
+    .header-tools { justify-content: center; width: 100%; }
+}

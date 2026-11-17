@@ -6,7 +6,9 @@
     <title>Gallery | Fitness / Gym</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+    <script src="js/theme.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/final.css">
 </head>
 <body class="page-gallery">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -21,8 +23,11 @@
                 <a href="gallery.html" class="active" aria-current="page">Gallery</a>
                 <a href="contact.html">Contact</a>
             </nav>
-            <a href="contact.html" class="btn gym-button header-cta">Join the gym <span aria-hidden="true">↗</span></a>
+            <div class="header-tools">
+                <button type="button" id="theme-toggle" class="btn btn-outline-dark" aria-pressed="false">Dark mode</button>
+            </div>
         </div>
+        <p id="theme-status" class="container header-notice" role="status"></p>
     </header>
 
     <main id="main-content">
