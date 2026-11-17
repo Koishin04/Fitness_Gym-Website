@@ -26,8 +26,20 @@ document.addEventListener("DOMContentLoaded", function () {
             return ["https:", "http:"].includes(parsed.protocol) ? parsed.href : null;
         } catch (_) { return null; }
     }
+    function updateCategories() {
+        const selected = category.value;
+        category.replaceChildren(new Option("All body areas", "all"));
+        [...new Set(exercises.map(item => item.category))].sort().forEach(function (name) {
+            category.add(new Option(name, name));
+        });
+        category.value = [...category.options].some(option => option.value === selected) ? selected : "all";
+    }
     function render() {
-        const visible = exercises;
+        const query = search.value.toLowerCase().trim();
+        const visible = exercises.filter(function (item) {
+            return (item.name + " " + item.equipment + " " + item.muscles).toLowerCase().includes(query)
+                && (category.value === "all" || item.category === category.value);
+        });
         results.replaceChildren();
         visible.forEach(function (item) {
             const card = textElement("article", "", "exercise-card");
@@ -102,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
             licenses = licenseData.results;
             exercises = normalized;
             nextPage = validatedNext;
+            updateCategories();
         } catch (failure) {
             error.textContent = "Could not load exercises from wger. Check your connection and try again.";
             if (exercises.length) error.textContent += " Previously loaded exercises are still available.";
@@ -113,6 +126,14 @@ document.addEventListener("DOMContentLoaded", function () {
             render();
         }
     }
+    search.addEventListener("input", render);
+    category.addEventListener("change", render);
     refresh.addEventListener("click", () => load(false));
+    document.getElementById("exercise-clear").addEventListener("click", function () {
+        search.value = "";
+        category.value = "all";
+        render();
+        search.focus();
+    });
     load(false);
 });
