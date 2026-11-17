@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     async function load(append) {
         if (loading) return;
-        const url = endpoint;
+        const url = append ? nextPage : endpoint;
         if (!url) return;
         loading = true;
         error.textContent = "";
@@ -110,9 +110,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 }];
             });
             if (data.results.length && !normalized.length) throw new Error("No usable English exercise data");
-            const validatedNext = null;
+            let validatedNext = null;
+            if (data.next) {
+                const next = new URL(data.next);
+                validatedNext = next.href;
+            }
             licenses = licenseData.results;
-            exercises = normalized;
+            exercises = [...new Map((append ? exercises.concat(normalized) : normalized).map(item => [item.id, item])).values()];
             nextPage = validatedNext;
             updateCategories();
         } catch (failure) {
@@ -129,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
     search.addEventListener("input", render);
     category.addEventListener("change", render);
     refresh.addEventListener("click", () => load(false));
+    more.addEventListener("click", () => load(true));
     document.getElementById("exercise-clear").addEventListener("click", function () {
         search.value = "";
         category.value = "all";
