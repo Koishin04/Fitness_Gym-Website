@@ -57,3 +57,14 @@ html[data-theme="dark"] :focus-visible { outline-color: var(--accent); }
     .nav-links { justify-content: center; }
     .header-tools { justify-content: center; width: 100%; }
 }
+
+.member-controls { display: flex; align-items: center; gap: 10px; }
+#member-name { max-width: 180px; overflow-wrap: anywhere; font-size: .85rem; }
+.member-welcome { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; padding: 16px 22px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); }
+.member-welcome p { margin: 0; }
+.account-dialog { width: min(540px, calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 28px; border: 1px solid var(--border); border-radius: 24px; background: var(--surface); color: var(--text); }
+.account-dialog::backdrop { background: #07100bd9; }
+.dialog-heading { display: flex; align-items: start; justify-content: space-between; gap: 15px; margin-bottom: 12px; }
+.dialog-heading h2 { font-size: 1.8rem; }
+.login-error { display: block; color: #a52b24; }
+html[data-theme="dark"] .login-error { color: #ffaaa6; }

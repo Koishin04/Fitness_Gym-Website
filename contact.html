@@ -25,12 +25,22 @@
             </nav>
             <div class="header-tools">
                 <button type="button" id="theme-toggle" class="btn btn-outline-dark" aria-pressed="false">Dark mode</button>
+                <button type="button" id="sign-in-open" class="btn gym-button">Sign in</button>
+                <div id="member-controls" class="member-controls" hidden>
+                    <span id="member-name"></span>
+                    <button type="button" id="sign-out" class="btn btn-outline-dark">Sign out</button>
+                </div>
             </div>
         </div>
         <p id="theme-status" class="container header-notice" role="status"></p>
+        <p id="account-status" class="container header-notice" role="status"></p>
     </header>
 
     <main id="main-content">
+        <div class="container member-welcome" data-member-welcome hidden>
+            <p>Welcome, <strong data-member-name></strong>. Ready for your next session?</p>
+            <a href="memberships.html#exercise-catalog">Explore exercises →</a>
+        </div>
         <section class="section">
             <div class="container">
                 <div class="page-heading">
@@ -215,5 +225,32 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/script.js"></script>
+    <dialog id="sign-in-dialog" class="account-dialog" aria-labelledby="sign-in-title" aria-describedby="sign-in-description">
+        <div class="dialog-heading">
+            <h2 id="sign-in-title">Welcome back</h2>
+            <button type="button" id="sign-in-close" class="btn btn-outline-dark" aria-label="Close sign-in">Close</button>
+        </div>
+        <p id="sign-in-description" class="form-note">Demo sign-in: use a sample email and password. Only your display name and sign-in status are saved in this browser. This does not create or verify a real account.</p>
+        <form id="sign-in-form" novalidate>
+            <div class="mb-3">
+                <label for="login-name" class="form-label">Display name</label>
+                <input id="login-name" class="form-control" autocomplete="nickname" minlength="2" maxlength="60" required aria-describedby="login-name-error">
+                <small id="login-name-error" class="login-error" aria-live="polite"></small>
+            </div>
+            <div class="mb-3">
+                <label for="login-email" class="form-label">Sample email</label>
+                <input id="login-email" type="email" class="form-control" autocomplete="username" maxlength="254" placeholder="member@example.com" required aria-describedby="login-email-error">
+                <small id="login-email-error" class="login-error" aria-live="polite"></small>
+            </div>
+            <div class="mb-3">
+                <label for="login-password" class="form-label">Sample password</label>
+                <input id="login-password" type="password" class="form-control" autocomplete="current-password" minlength="8" required aria-describedby="login-password-error">
+                <small id="login-password-error" class="login-error" aria-live="polite"></small>
+            </div>
+            <p id="sign-in-status" role="status"></p>
+            <button type="submit" class="btn gym-button">Sign in to demo</button>
+        </form>
+    </dialog>
+    <script src="js/auth.js"></script>
 </body>
 </html>
